@@ -1,0 +1,16 @@
+language: groovy
+jdk:
+  - oraclejdk7
+branches:
+  only:
+    - master
+script: ./grailsw refresh-dependencies
+  && ./grailsw "test-app unit:"
+  && cd test/apps/gson-test
+  && ./grailsw refresh-dependencies
+  && ./grailsw "test-app functional:"
+deploy:
+  provider: heroku
+  api_key:
+    secure: AFuTUNRt01h54pkx712RUUekBi7k5n3I6PTno8tWN2nqfnVVOGuwiW4JfmDHN8ilvo1VydzfHY+VgouI5mcNTMQ0Q8PT4Hg7btZoX/828lSZbYeLGwezwnakHx3/elZH7pFET2+OTiWA9CjlE32lb/RVGz7d6NDnGx1P7x0tBSLg5OuEuxk8yKQmvncdguM6Nkpx9kl2B/60kD3olBuGhl3o3iLF7YmNXtgq2ZaQHIjtv056sibiK4FKvG2U9KIGBjSOK7Uv9zOVoz95O9f5BfXk8ffYOx3zOgry7wbs0fOYDtsPjncNSRQGl648NCslq4VjL4cpsSiDxnYMlHNYOlLAWHwoubHlTNeq5chRH0/9VE2VFO1XhXWA2kyvseWhBMODomGYaU2ZJ/+MkjmI85lLHaSHwY/xiJIYjVP9U6OcBkQtF9f5gScEYAhmhPCQZxYFm7HpNvahjiRjo1GrBG38a/yVJWUVsz3nSg7QeCpLAW/NoOfpiDrpYnP8WI0UR30i3En4lpP00DON1ctz/PrNXZbWWBtPskRj/1aESl7fbL2DlbthmxIe43BBgcG3T3fRIXOAMiiqRIV6k+Qdhla8pso/j6mRwvCtZskKFl535a8Tr/b+agizc5svRcc+oEEJTYeI42SZNIw5MqSGu1GGuVs+hiLUhpRrqgI7S7g=
+  app: M2DL-IVVQ-JackiesEtSosies
