@@ -1,6 +1,6 @@
 package jackiesetsosies
 
-class Evenement {
+class Star {
 
     static constraints = {
     }
