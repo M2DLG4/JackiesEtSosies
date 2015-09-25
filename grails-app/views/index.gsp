@@ -117,9 +117,9 @@
                                 <div class="login_result"></div>
                             </label>
                             <input class="form-control" placeholder="Email"
-                                   id="username" type="email">
+                                   name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
-                                   id="password" type="password">
+                                   name="mdp" type="password">
                             <br></br>
                             <input class="btn btn-lg btn-success btn-block"
                                    type="submit" id="login" value="Se connecter">
@@ -145,7 +145,7 @@
                             <input class="form-control" placeholder="Nom"
                                    name="nom" type="text">
                             <input class="form-control" placeholder="Prenom"
-                                   name="nom" type="text">
+                                   name="prenom" type="text">
                             <input class="form-control" placeholder="●●●●●●●●"
                                    name="mdp" type="password">
                             <input class="form-control" placeholder="Email"
