@@ -1,122 +1,181 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Jackies et Sosies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="${resource(dir: 'css', file: 'bootstrap-yeti.min.css')}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="${resource(dir: 'css', file: 'font-awesome.min.css')}"
+          type="text/css">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"
+          type="text/css">
+    <style>
+    body.parallax-index {
+        background-color: #444;
+        background: url(${resource(dir: 'images', file: 'index-background.jpg')});
+        background-size: 31%;
+    }
+    </style>
+</head>
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+<body class="parallax-index">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
+            <a class="navbar-brand" href="#">Jackie & Sosies</a>
+        </div>
+        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
+        <div id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/" class="active">Connexion / Inscription</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
 
-			#status li {
-				line-height: 1.3;
-			}
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../navbar/">Default</a></li>
+                <li class="active"><a href="./">Static top <span
+                        class="sr-only">(current)</span></a></li>
+                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+<div class="container">
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h3>Bienvenue sur Jackie & Sosies Network !</h3>
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
+        <p style="font-size:0.98em;">
+            La communauté de sosies et leurs adminirateurs vous souhaitent une agréable visite dès lors que vous vous serez inscrit !
+        </p>
+    </div>
 
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row-fluid user-row">
+                        Connexion
+                    </div>
+                </div>
 
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
+                <div class="panel-body">
+                    <g:form class="form-signin" name="connexion-form" url="[action:'list',controller:'book']">
+                        <fieldset>
+                            <input class="form-control" placeholder="Email"
+                                   name="mail" type="email">
+                            <input class="form-control" placeholder="●●●●●●●●"
+                                   name="mdp" type="password">
+                            <br></br>
+                            <input class="btn btn-lg btn-success btn-block"
+                                   type="submit" id="login" value="Se connecter">
+                        </fieldset>
+                    </g:form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row-fluid user-row">
+                        Inscription
+                    </div>
+                </div>
 
-				#page-body {
-					margin: 0 1em 1em;
-				}
+                <div class="panel-body">
+                    <g:form class="form-signin" name="inscription-form" url="[action:'list',controller:'book']">
+                        <fieldset>
+                            <input class="form-control" placeholder="Nom"
+                                   name="nom" type="text">
+                            <input class="form-control" placeholder="Prenom"
+                                   name="prenom" type="text">
+                            <input class="form-control" placeholder="●●●●●●●●"
+                                   name="mdp" type="password">
+                            <input class="form-control" placeholder="Email"
+                                   name="mail" type="email">
+                            <input class="form-control" placeholder="Votre ville"
+                                   name="ville" type="text">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="isSosie"> Etes vous le sosie de quelqu'un d'autre ?
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="sexe" value="H"> Homme
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="sexe" value="F"> Femme
+                                </label>
+                            </div>
+                            <br></br>
+                            <input class="btn btn-lg btn-success btn-block"
+                                   type="submit" id="login" value="S'inscrire">
+                        </fieldset>
+                    </g:form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+</div> <!-- /container -->
 
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+<script src="${resource(dir: 'js', file: 'jquery-1.11.3.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'TweenLite.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'parallax.js')}"></script>
+</body>
 </html>
