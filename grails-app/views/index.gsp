@@ -113,9 +113,6 @@
                 <div class="panel-body">
                     <g:form class="form-signin" name="connexion-form" url="[action:'list',controller:'book']">
                         <fieldset>
-                            <label class="panel-login">
-                                <div class="login_result"></div>
-                            </label>
                             <input class="form-control" placeholder="Email"
                                    name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
@@ -139,9 +136,6 @@
                 <div class="panel-body">
                     <g:form class="form-signin" name="inscription-form" url="[action:'list',controller:'book']">
                         <fieldset>
-                            <label class="panel-login">
-                                <div class="login_result"></div>
-                            </label>
                             <input class="form-control" placeholder="Nom"
                                    name="nom" type="text">
                             <input class="form-control" placeholder="Prenom"
