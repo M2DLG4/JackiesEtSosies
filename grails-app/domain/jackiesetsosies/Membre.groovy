@@ -17,8 +17,9 @@ class Membre {
         nom blank: false
         prenom blank: false
         mail email: true
+        mdp blank: false
         ville blank: false
-        sexe inList: ["F", "M"]
+        sexe inList: ["F", "H"]
         isSosie nullable: false
         idStar nullable: true
         idPhoto nullable: true
