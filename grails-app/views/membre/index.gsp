@@ -81,7 +81,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="./">Static top <span
+                <li class="active"><a href="../../../web-app">Static top <span
                         class="sr-only">(current)</span></a></li>
                 <li><a href="../navbar-fixed-top/">Fixed top</a></li>
             </ul>
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <g:form class="form-signin" name="connexion-form" url="[action:'list',controller:'book']">
+                    <g:form class="form-signin" name="connexion-form" url="[action:'connexion',controller:'membre']">
                         <fieldset>
                             <input class="form-control" placeholder="Email"
                                    name="mail" type="email">
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <g:form class="form-signin" name="inscription-form" url="[action:'list',controller:'book']">
+                    <g:form class="form-signin" name="inscription-form" url="[action:'inscription',controller:'membre']">
                         <fieldset>
                             <input class="form-control" placeholder="Nom"
                                    name="nom" type="text">
@@ -162,8 +162,8 @@
                                 </label>
                             </div>
                             <br></br>
-                            <input class="btn btn-lg btn-success btn-block"
-                                   type="submit" id="login" value="S'inscrire">
+
+                            <g:actionSubmit class="btn btn-lg btn-success btn-block" action="inscription" type="submit" id="login" value="S'inscrire" />
                         </fieldset>
                     </g:form>
                 </div>

@@ -1,10 +1,12 @@
 package jackiesetsosies
 
-class MembreController {
+class membreController {
 
     def membreService
 
-    def index() { }
+    def index() {
+    }
+
     def inscription() {
         def prenom = params.prenom
         def nom = params.nom
@@ -18,8 +20,8 @@ class MembreController {
 
         membreService.inscriptionMembre(prenom, nom, sexe, mail, ville, isSosie, mdp)
 
-        render(view: 'index')
-}
+        render(view: "index")
+    }
 
     def connexion() {
         def mail = params.mail
@@ -27,7 +29,7 @@ class MembreController {
 
         membreService.connexionMembre(mail, mdp)
 
-        render(view: 'index')
+        render(view: "index")
     }
 
 
