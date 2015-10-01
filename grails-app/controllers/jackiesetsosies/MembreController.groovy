@@ -18,9 +18,15 @@ class membreController {
         //def star = params["star"]
         //def photo = params["photo"]
 
-        membreService.inscriptionMembre(prenom, nom, sexe, mail, ville, isSosie, mdp)
+        String validationInscription;
 
-        render(view: "index")
+        if (membreService.inscriptionMembre(prenom, nom, sexe, mail, ville, isSosie, mdp) == null) {
+            validationInscription = "Inscription terminée ! Vous pouvez maintenant vous connecter.";
+        } else {
+            validationInscription = "Inscription impossible ! Veuillez réessayer.";
+        }
+
+        render(view: "index", model: [validation:validationInscription])
     }
 
     def connexion() {

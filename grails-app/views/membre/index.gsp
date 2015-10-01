@@ -140,17 +140,8 @@
                                    name="nom" type="text">
                             <input class="form-control" placeholder="Prenom"
                                    name="prenom" type="text">
-                            <input class="form-control" placeholder="●●●●●●●●"
-                                   name="mdp" type="password">
-                            <input class="form-control" placeholder="Email"
-                                   name="mail" type="email">
                             <input class="form-control" placeholder="Votre ville"
                                    name="ville" type="text">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="isSosie"> Etes vous le sosie de quelqu'un d'autre ?
-                                </label>
-                            </div>
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="sexe" value="H"> Homme
@@ -161,8 +152,16 @@
                                     <input type="radio" name="sexe" value="F"> Femme
                                 </label>
                             </div>
-                            <br></br>
-
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="isSosie"> Êtes-vous le sosie de quelqu'un d'autre ?
+                                </label>
+                            </div>
+                            <input class="form-control" placeholder="Email"
+                                   name="mail" type="email">
+                            <input class="form-control" placeholder="●●●●●●●●"
+                                   name="mdp" type="password">
+                            ${validation}
                             <g:actionSubmit class="btn btn-lg btn-success btn-block" action="inscription" type="submit" id="login" value="S'inscrire" />
                         </fieldset>
                     </g:form>

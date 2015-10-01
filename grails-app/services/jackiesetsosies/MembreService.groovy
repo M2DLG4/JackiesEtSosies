@@ -12,6 +12,7 @@ class MembreService {
     Membre inscriptionMembre(String prenom, String nom, String sexe, String mail, String ville, Boolean isSosie, String mdp) {
         Membre newMembre = new Membre(nom: nom, prenom: prenom, sexe: sexe, mail: mail, ville: ville, isSosie: isSosie, mdp: mdp)
         newMembre.save()
+        return newMembre
     }
 
     Membre connexionMembre(String mail, String mdp) {
