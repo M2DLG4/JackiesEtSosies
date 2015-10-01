@@ -2,28 +2,24 @@ package jackiesetsosies
 
 class MembreController {
 
+    public static
+    final String INSCRIPTION_OK = "Inscription terminée ! Vous pouvez maintenant vous connecter."
+    final String INSCRIPTION_NOK = "Inscription impossible ! Veuillez réessayer."
     def membreService
 
     def index() {
     }
 
     def inscription() {
-        def prenom = params.prenom
-        def nom = params.nom
-        def mail = params.mail
-        def ville = params.ville
-        Boolean isSosie = params.boolean("isSosie")
-        def mdp = params.mdp
-        def sexe = params.sexe
-        //def star = params["star"]
-        //def photo = params["photo"]
+        params.isSosie = params.boolean("isSosie")
+        Membre membre = new Membre(params);
 
         String validationInscription;
 
-        if (membreService.inscriptionMembre(prenom, nom, sexe, mail, ville, isSosie, mdp) == null) {
-            validationInscription = "Inscription terminée ! Vous pouvez maintenant vous connecter.";
+        if (membreService.inscriptionMembre(membre)?.hasErrors() == false) {
+            validationInscription = INSCRIPTION_OK;
         } else {
-            validationInscription = "Inscription impossible ! Veuillez réessayer.";
+            validationInscription = INSCRIPTION_NOK;
         }
 
         render(view: "index", model: [validation:validationInscription])
