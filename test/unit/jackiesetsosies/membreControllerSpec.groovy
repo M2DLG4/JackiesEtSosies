@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * Created by Elliot on 01/10/2015.
  */
-@TestFor(membreController)
-class membreControllerSpec extends Specification {
+@TestFor(MembreController)
+class MembreControllerSpec extends Specification {
 
     void "test une inscription valide"() {
         given: "Une demande d'inscription avec toutes les informations"
@@ -20,7 +20,7 @@ class membreControllerSpec extends Specification {
         params.put("mdp", mdp);
 
         when: "on inscrit le membre"
-        def validation = membreController.inscription()
+        def validation = MembreController.inscription()
 
         then: "L'inscription est validée"
         model.validation.equals("Inscription terminée ! Vous pouvez maintenant vous connecter.")

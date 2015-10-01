@@ -1,6 +1,6 @@
 package jackiesetsosies
 
-class membreController {
+class MembreController {
 
     def membreService
 
