@@ -36,3 +36,5 @@
 
 *.iml
 *.tld
+
+cobertura.ser
