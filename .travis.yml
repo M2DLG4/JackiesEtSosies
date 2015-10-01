@@ -1,9 +1,6 @@
 language: groovy
 jdk:
   - oraclejdk7
-branches:
-  only:
-    - master
 script: ./grailsw refresh-dependencies
   && ./grailsw "test-app unit:"
   && ./grailsw refresh-dependencies
