@@ -45,7 +45,8 @@
     <div class="container">
         <div class="navbar-header">
             <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
-            <a class="navbar-brand" href="#">Jackie & Sosies</a>
+
+            <a class="navbar-brand" href="#"><img src="${resource(dir: 'images', file: 'android-icon-36x36.png')}"> Jackie & Sosies</a>
         </div>
         <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
         <div id="navbar">
