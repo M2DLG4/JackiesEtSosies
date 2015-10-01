@@ -8,26 +8,33 @@ import spock.lang.Specification
  */
 @TestFor(MembreController)
 class MembreControllerSpec extends Specification {
-
+    void setup() {
+        controller.membreService = Mock(MembreService)
+    }
     void "test une inscription valide"() {
         given: "Une demande d'inscription avec toutes les informations"
-        params.put("nom", nom);
-        params.put("prenom", prenom);
-        params.put("ville", ville);
-        params.put("sexe", sexe);
-        params.put("isSosie", isSosie);
-        params.put("mail", mail);
-        params.put("mdp", mdp);
+        Membre m = Mock(Membre);
+        m.hasErrors () >> false
+        controller.membreService.inscriptionMembre(_) >> m
 
         when: "on inscrit le membre"
-        def validation = MembreController.inscription()
+        def validation = controller.inscription()
 
         then: "L'inscription est validée"
-        model.validation.equals("Inscription terminée ! Vous pouvez maintenant vous connecter.")
+        model.validation.equals(controller.INSCRIPTION_OK)
+    }
 
-        where: "avec le jeu de donnees suivant"
-        nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie
-        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | "true"
-        "Jacky" | "Bernadette"| "bernadette.jacky@gmail.com" | "JohnnyLeBest" | "F"  | "Toulouse" | "false"
+
+    void "test une inscription invalide"() {
+        given: "Une demande d'inscription avec toutes les informations"
+        Membre m = Mock(Membre);
+        m.hasErrors () >> true
+        controller.membreService.inscriptionMembre(_) >> m
+
+        when: "on inscrit le membre"
+        def validation = controller.inscription()
+
+        then: "L'inscription est invalidée"
+        model.validation.equals(controller.INSCRIPTION_NOK)
     }
 }
