@@ -2,24 +2,23 @@ package jackiesetsosies
 
 import grails.transaction.Transactional
 
-@Transactional
 class MembreService {
+
+    def membreDAOService
 
     def serviceMethod() {
 
     }
 
-    Membre inscriptionMembre(String prenom, String nom, String sexe, String mail, String ville, Boolean isSosie, String mdp) {
-        Membre newMembre = new Membre(nom: nom, prenom: prenom, sexe: sexe, mail: mail, ville: ville, isSosie: isSosie, mdp: mdp)
-        newMembre.save()
-        return newMembre
+    Membre inscriptionMembre(Membre membre) {
+        return membreDAOService.addMembre(membre);
     }
 
     Membre connexionMembre(String mail, String mdp) {
-        def m = Membre.findByMail(mail)
+        Membre m = membreDAOService.searchMembre(mail)
 
         if (m) {
-            if (m.mdp == mdp) {
+            if (m.mdp.equals(mdp)) {
                 return m
             }
         } else {
