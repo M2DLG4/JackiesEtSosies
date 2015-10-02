@@ -10,6 +10,7 @@ class MembreController {
 
     def membreService
 
+    @Override
     def index() {
     }
 
@@ -18,11 +19,12 @@ class MembreController {
             params.isSosie = params.boolean("isSosie")
         else
             params.isSosie = false;
-        Membre membre = new Membre(params);
+        Membre membre = new Membre(nom: params.nom, prenom: params.prenom, ville: params.ville,
+                sexe: params.sexe, isSosie: params.isSosie, mail: params.mail, mdp: params.mdp);
 
         String validationInscription;
 
-        if (membreService.inscriptionMembre(membre)?.hasErrors() == false) {
+        if (!membreService.inscriptionMembre(membre)?.hasErrors()) {
             validationInscription = INSCRIPTION_OK;
         } else {
             validationInscription = INSCRIPTION_NOK;
