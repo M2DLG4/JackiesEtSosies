@@ -32,8 +32,9 @@ class MembreController {
         def mail = params.mail
         def mdp = params.mdp
 
-        membreService.connexionMembre(mail, mdp)
+        session.setAttribute("user", membreService.connexionMembre(mail, mdp))
 
+        System.out.println(session.getAttribute("user"))
         render(view: "index")
     }
 
