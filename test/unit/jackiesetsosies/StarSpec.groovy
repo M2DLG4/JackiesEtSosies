@@ -14,13 +14,13 @@ class StarSpec extends Specification {
     @Unroll
     void "test une Star valide"() {
         given: "une star avec un prenom, nom, url"
-        def star = new Star(prenom: "Johnny", nom: "Hallyday", urlPhoto: Mock(Photo))
+        def star = new Star(prenom: "Johnny", nom: "Hallyday", urlPhoto: "machin.jpg")
 
         when: "on valide la star"
         def isValid = star.validate()
 
         then: "la star est valide"
-        isValid == true
+        isValid
     }
 
     @Unroll
@@ -32,14 +32,16 @@ class StarSpec extends Specification {
         def isValid = star.validate()
 
         then: "la star n'est pas valide"
-        isValid == false
+        !isValid
 
         where: "avec le jeu de donnees suivant"
         nom        | prenom   | url
-        ""         | "Johnny" | Mock(Photo)
-        null       | "Johnny" | Mock(Photo)
-        "Hallyday" | ""       | Mock(Photo)
-        "Hallyday" | null     | Mock(Photo)
+        ""         | "Johnny" | "machin.jpg"
+        null       | "Johnny" | "machin.jpg"
+        "Hallyday" | ""       | "machin.jpg"
+        "Hallyday" | null     | "machin.jpg"
+        "Hallyday" | "Johnny" | ""
         "Hallyday" | "Johnny" | null
+
     }
 }

@@ -14,61 +14,63 @@ class MembreSpec extends Specification {
     void "test un membre valide"() {
         given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, estUnSosie, photo en parametre"
         Membre member = new Membre(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
-                ville:ville, isSosie: isSosie, idStar: Mock(Star), idPhoto: idPhoto)
+                ville:ville, isSosie: isSosie, idStar: Mock(Star), urlPhoto: urlPhoto)
 
         when: "on valide le membre"
         def isValid = member.validate()
 
         then: "le membre est valide"
-        isValid == true
+        isValid
 
         where: "avec le jeu de donnees suivant"
-        nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie | idPhoto
-        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Photo)
-        "Jacky" | "Bernadette"| "bernadette.jacky@gmail.com" | "JohnnyLeBest" | "F"  | "Toulouse" | true    | null
+        nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie | urlPhoto
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | "machin.png"
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | null
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | false   | "machin.png"
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | false   | null
     }
 
     void "test un membre valide sans isSosie"() {
         given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, photo en parametre"
         Membre member = new Membre(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
-                ville:ville, idStar: Mock(Star), idPhoto: idPhoto)
+                ville:ville, idStar: Mock(Star))
 
         when: "on valide le membre"
         def isValid = member.validate()
 
         then: "le membre est valide"
-        isValid == true
+        isValid
 
         where: "avec le jeu de donnees suivant"
-        nom     | prenom      | mail                         | mdp            | sexe | ville      | idPhoto
-        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | Mock(Photo)
+        nom     | prenom      | mail                         | mdp            | sexe | ville
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse"
     }
 
     @Unroll
     void "test un membre invalide"() {
-        given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, estUnSosie, une Star en parametre et pas de photo"
+        given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, estUnSosie, une Star en parametre et une photo par défaut"
         Membre member = new Membre(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
-                ville:ville, isSosie: isSosie, idStar: idStar, idPhoto: null)
+                ville:ville)
 
         when: "on valide le membre"
         def isValid = member.validate()
 
         then: "le membre n'est pas valide"
-        isValid == false
+        !isValid
 
         where: "avec le jeu de donnees suivant"
-        nom     | prenom   | mail                     | mdp            | sexe | ville      |isSosie  | idStar
-        ""      | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        null    | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | ""       | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | null     | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | ""                       | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | null                     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | ""             | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | null           | "H"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "-"  | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | null | "Toulouse" | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | ""         | true    | Mock(Star)
-        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | null       | true    | Mock(Star)
+        nom     | prenom   | mail                     | mdp            | sexe | ville
+        ""      | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse"
+        null    | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse"
+        "Jacky" | ""       | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse"
+        "Jacky" | null     | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse"
+        "Jacky" | "Pierre" | ""                       | "JohnnyLeBest" | "H"  | "Toulouse"
+        "Jacky" | "Pierre" | null                     | "JohnnyLeBest" | "H"  | "Toulouse"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | ""             | "H"  | "Toulouse"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | null           | "H"  | "Toulouse"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "-"  | "Toulouse"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | null | "Toulouse"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | ""
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | null
     }
 }
