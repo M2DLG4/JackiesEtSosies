@@ -9,7 +9,7 @@ class Membre {
     String mdp;
     String ville;
     String sexe;
-    boolean isSosie = false;
+    boolean isSosie;
     Star idStar;
     Photo idPhoto;
 
