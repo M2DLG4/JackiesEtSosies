@@ -4,11 +4,6 @@ class MembreService {
 
     def membreDAOService
 
-    @Override
-    def serviceMethod() {
-
-    }
-
     Membre inscriptionMembre(Membre membre) {
         return membreDAOService.addMembre(membre);
     }
