@@ -7,21 +7,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<link rel="apple-touch-icon" sizes="57x57" href="/JackiesEtSosies/static/images/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/JackiesEtSosies/static/images/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/JackiesEtSosies/static/images/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/JackiesEtSosies/static/images/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/JackiesEtSosies/static/images/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/JackiesEtSosies/static/images/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/JackiesEtSosies/static/images/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/JackiesEtSosies/static/images/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/JackiesEtSosies/static/images/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/JackiesEtSosies/static/images/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/JackiesEtSosies/static/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/JackiesEtSosies/static/images/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/JackiesEtSosies/static/images/favicon-16x16.png">
-	<link rel="shortcut icon" href="/JackiesEtSosies/static/images/favicon.ico" type="image/x-icon">
-	<link rel="manifest" href="/JackiesEtSosies/static/images/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/JackiesEtSosies/static/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/JackiesEtSosies/static/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/JackiesEtSosies/static/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/JackiesEtSosies/static/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/JackiesEtSosies/static/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/JackiesEtSosies/static/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/JackiesEtSosies/static/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/JackiesEtSosies/static/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/JackiesEtSosies/static/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/JackiesEtSosies/static/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/JackiesEtSosies/static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/JackiesEtSosies/static/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/JackiesEtSosies/static/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/JackiesEtSosies/static/images/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/JackiesEtSosies/static/images/manifest.json">
     <title>Jackies et Sosies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -40,7 +40,7 @@
     }
     </style>
 </head>
-<body class="parallax-index">
+<body class="parallax-index" style="padding-top: 80px;">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -56,54 +56,6 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
-
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       role="button" aria-haspopup="true"
-                       aria-expanded="false">Dropdown <span
-                            class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="../../../web-app">Static top <span
-                        class="sr-only">(current)</span></a></li>
-                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-
 
 <div class="container">
 
