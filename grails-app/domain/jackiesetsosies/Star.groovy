@@ -5,7 +5,7 @@ package jackiesetsosies
 class Star {
     String nom;
     String prenom;
-    Photo urlPhoto;
+    String urlPhoto;
 
     static constraints = {
         nom blank: false
