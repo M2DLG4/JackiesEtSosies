@@ -5,6 +5,9 @@ class MembreController {
     public static
     final String INSCRIPTION_OK = "Inscription terminée ! Vous pouvez maintenant vous connecter."
     final String INSCRIPTION_NOK = "Inscription impossible ! Veuillez réessayer."
+    final String CONNEXION_OK = "Vous êtes maintenant connecté."
+    final String CONNEXION_NOK = "Mail ou mot de passe erroné."
+
     def membreService
 
     def index() {
@@ -34,9 +37,14 @@ class MembreController {
 
         session.setAttribute("user", membreService.connexionMembre(mail, mdp))
 
-        System.out.println(session.getAttribute("user"))
-        render(view: "index")
+        if (session.getAttribute("user") == null)
+            render(view: "index", model: [erreur: CONNEXION_NOK])
+        else
+            session.setAttribute("mail", mail)
+            redirect(action: "actus")
     }
 
-
+    def actus() {
+        render(view: "actus")
+    }
 }
