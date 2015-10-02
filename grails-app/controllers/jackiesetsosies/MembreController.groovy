@@ -12,6 +12,7 @@ class MembreController {
 
     @Override
     def index() {
+        render view: "index"
     }
 
     def inscription() {

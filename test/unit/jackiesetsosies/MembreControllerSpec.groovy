@@ -22,6 +22,20 @@ class MembreControllerSpec extends Specification {
         model.validation.equals(controller.INSCRIPTION_OK)
     }
 
+    void "test une inscription valide avec un parametre"() {
+        given: "Une demande d'inscription avec toutes les informations"
+        Membre m = Mock(Membre);
+        m.hasErrors () >> false
+        controller.membreService.inscriptionMembre(_) >> m
+
+        when: "on inscrit le membre"
+        params.isSosie = "true";
+        controller.inscription()
+
+        then: "L'inscription est validée"
+        model.validation.equals(controller.INSCRIPTION_OK)
+    }
+
     void "test une inscription invalide"() {
         given: "Une demande d'inscription avec toutes les informations"
         Membre m = Mock(Membre);
@@ -56,5 +70,13 @@ class MembreControllerSpec extends Specification {
 
         then: "La connexion est invalidée"
         model.erreur.equals(controller.CONNEXION_NOK)
+    }
+
+    void "test afficher la page d'index"() {
+        when: "on se connecte au site"
+        controller.index()
+
+        then: "la vue est index"
+        view.equals("/membre/index")
     }
 }
