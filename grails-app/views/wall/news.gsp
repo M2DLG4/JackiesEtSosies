@@ -141,8 +141,8 @@
 </nav>
 
 
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top">
+<!-- navbar -->
+<nav class="navbar navbar-default navbar-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"
@@ -179,7 +179,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../navbar/">Default</a></li>
-                <li class="active"><a href="../../../web-app">Static top <span
+                <li class="active"><a href="../../../web-app" top <span
                         class="sr-only">(current)</span></a></li>
                 <li><a href="../navbar-fixed-top/">Fixed top</a></li>
             </ul>
@@ -194,7 +194,7 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="/JackiesEtSosies/static/images/placeholder-membre.png"
+                    <img src="/JackiesEtSosies/images/placeholder-membre.png"
                          class="img-responsive img-circle" alt="">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
@@ -222,8 +222,8 @@
                     <ul class="nav">
                         <li class="active">
                             <a href="#">
-                                <i class="glyphicon glyphicon-home"></i>
-                                Overview</a>
+                                <i class="fa fa-credit-card"></i>
+                                Donation</a>
                         </li>
                         <li>
                             <a href="#">
@@ -264,7 +264,7 @@
                 <div class="message-item" id="m16">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="/JackiesEtSosies/static/images/placeholder-membre.png" class="img-circle"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-circle"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">Oleg Kolesnichenko</h5>
                                 <div class="post-meta">
@@ -289,7 +289,7 @@
                 <div class="message-item" id="m9">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">amiya</h5>
                                 <div class="post-meta">
@@ -314,7 +314,7 @@
                 <div class="message-item" id="m7">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">russell</h5>
                                 <div class="post-meta">
@@ -339,7 +339,7 @@
                 <div class="message-item" id="m6">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">juggornot</h5>
                                 <div class="post-meta">
@@ -364,7 +364,7 @@
                 <div class="message-item" id="m5">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=one_eyed"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=one_eyed"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">one_eyed</h5>
                                 <div class="post-meta">
@@ -389,7 +389,7 @@
                 <div class="message-item" id="m4">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=muboy"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=muboy"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">muboy</h5>
                                 <div class="post-meta">
@@ -415,7 +415,7 @@
                 <div class="message-item" id="m3">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=monu"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=monu"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">monu</h5>
                                 <div class="post-meta">
@@ -440,7 +440,7 @@
                 <div class="message-item" id="m2">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Fynn"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Fynn"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">Fynn</h5>
                                 <div class="post-meta">
@@ -465,7 +465,7 @@
                 <div class="message-item" id="m1">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=admin"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=admin"><img src="/JackiesEtSosies/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">admin</h5>
                                 <div class="post-meta">
