@@ -9,7 +9,7 @@ class Membre {
     String mdp;
     String ville;
     String sexe;
-    boolean isSosie;
+    boolean isSosie = false;
     Star idStar;
     Photo idPhoto;
 
@@ -22,10 +22,10 @@ class Membre {
         ville blank: false
         sexe inList: ["F", "H"]
         idStar nullable: true
-        idPhoto nullable: true
     }
 
     static mapping = {
         isSosie defaultValue: false
+        idPhoto defaultValue: new Photo(urlPhoto: "/JackiesEtSosies/static/images/placeholder-membre.png")
     }
 }
