@@ -3,9 +3,6 @@ package jackiesetsosies
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
-/**
- * Created by Elliot on 01/10/2015.
- */
 @TestFor(MembreController)
 class MembreControllerSpec extends Specification {
     void setup() {
@@ -18,7 +15,7 @@ class MembreControllerSpec extends Specification {
         controller.membreService.inscriptionMembre(_) >> m
 
         when: "on inscrit le membre"
-        def validation = controller.inscription()
+        controller.inscription()
 
         then: "L'inscription est validée"
         model.validation.equals(controller.INSCRIPTION_OK)
@@ -32,7 +29,7 @@ class MembreControllerSpec extends Specification {
         controller.membreService.inscriptionMembre(_) >> m
 
         when: "on inscrit le membre"
-        def validation = controller.inscription()
+        controller.inscription()
 
         then: "L'inscription est invalidée"
         model.validation.equals(controller.INSCRIPTION_NOK)

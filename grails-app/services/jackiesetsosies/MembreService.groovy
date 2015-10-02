@@ -1,11 +1,10 @@
 package jackiesetsosies
 
-import grails.transaction.Transactional
-
 class MembreService {
 
     def membreDAOService
 
+    @Override
     def serviceMethod() {
 
     }

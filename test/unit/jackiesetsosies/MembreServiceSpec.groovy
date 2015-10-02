@@ -13,6 +13,7 @@ class MembreServiceSpec extends Specification {
         service.membreDAOService = Mock(MembreDAOService)
     }
 
+    @Override
     def cleanup() {
     }
 
