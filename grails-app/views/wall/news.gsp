@@ -37,9 +37,6 @@
         margin: 0 auto;
         width: 50%;
         height: 50%;
-        -webkit-border-radius: 50% !important;
-        -moz-border-radius: 50% !important;
-        border-radius: 50% !important;
     }
 
     .profile-usertitle {
@@ -197,8 +194,8 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
-                         class="img-responsive" alt="">
+                    <img src="/JackiesEtSosies/static/images/placeholder-membre.png"
+                         class="img-responsive img-circle" alt="">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -252,12 +249,22 @@
         <div class="col-md-9" id="timeline">
             <h3 class="text-center">Découvrez ce que vos amis et sosies préférés partagent !</h3>
             <br>
-
+            <div class="row" id="new_message">
+                <form accept-charset="UTF-8" action="" method="POST">
+                <div class="col-md-10 col-md-offset-1 well">
+                    <textarea class="form-control" name="new_message" placeholder="Type in your message" rows="5"></textarea>
+                    <div style="margin-top:10px">
+                        <h6 class="pull-right "><span class="nb_carac_remaining">320</span> characters remaining</h6>
+                        <button class="btn btn-info" type="submit">Post New Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
             <div class="qa-message-list" id="wallmessages">
                 <div class="message-item" id="m16">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img src="/JackiesEtSosies/static/images/placeholder-membre.png" class="img-circle"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">Oleg Kolesnichenko</h5>
                                 <div class="post-meta">
@@ -282,7 +289,7 @@
                 <div class="message-item" id="m9">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=amiya"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">amiya</h5>
                                 <div class="post-meta">
@@ -307,7 +314,7 @@
                 <div class="message-item" id="m7">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=russell"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">russell</h5>
                                 <div class="post-meta">
@@ -332,7 +339,7 @@
                 <div class="message-item" id="m6">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=juggornot"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">juggornot</h5>
                                 <div class="post-meta">
@@ -357,7 +364,7 @@
                 <div class="message-item" id="m5">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=one_eyed"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=one_eyed"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">one_eyed</h5>
                                 <div class="post-meta">
@@ -382,7 +389,7 @@
                 <div class="message-item" id="m4">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=muboy"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=muboy"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">muboy</h5>
                                 <div class="post-meta">
@@ -408,7 +415,7 @@
                 <div class="message-item" id="m3">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=monu"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=monu"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">monu</h5>
                                 <div class="post-meta">
@@ -433,7 +440,7 @@
                 <div class="message-item" id="m2">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Fynn"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Fynn"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">Fynn</h5>
                                 <div class="post-meta">
@@ -458,7 +465,7 @@
                 <div class="message-item" id="m1">
                     <div class="message-inner">
                         <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=admin"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+                            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=admin"><img src="/JackiesEtSosies/static/images/placeholder-membre.png"></a></div>
                             <div class="user-detail">
                                 <h5 class="handle">admin</h5>
                                 <div class="post-meta">
@@ -489,5 +496,6 @@
 
 <script src="${resource(dir: 'js', file: 'jquery-1.11.3.min.js')}"></script>
 <script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'wall.js')}"></script>
 </body>
 </html>
