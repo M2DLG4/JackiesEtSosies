@@ -154,7 +154,7 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="isSosie"> Êtes-vous le sosie de quelqu'un d'autre ?
+                                    <input type="checkbox" name="isSosie" value="true"> Êtes-vous le sosie de quelqu'un d'autre ?
                                 </label>
                             </div>
                             <input class="form-control" placeholder="Email"

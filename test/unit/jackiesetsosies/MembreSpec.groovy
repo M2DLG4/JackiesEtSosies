@@ -28,6 +28,22 @@ class MembreSpec extends Specification {
         "Jacky" | "Bernadette"| "bernadette.jacky@gmail.com" | "JohnnyLeBest" | "F"  | "Toulouse" | true    | null
     }
 
+    void "test un membre valide sans isSosie"() {
+        given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, photo en parametre"
+        Membre member = new Membre(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
+                ville:ville, idStar: Mock(Star), idPhoto: idPhoto)
+
+        when: "on valide le membre"
+        def isValid = member.validate()
+
+        then: "le membre est valide"
+        isValid == true
+
+        where: "avec le jeu de donnees suivant"
+        nom     | prenom      | mail                         | mdp            | sexe | ville      | idPhoto
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | Mock(Photo)
+    }
+
     @Unroll
     void "test un membre invalide"() {
         given: "Un membre avec un nom, prenom, mail, mdp, sexe, ville, estUnSosie, une Star en parametre et pas de photo"

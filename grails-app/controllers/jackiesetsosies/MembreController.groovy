@@ -11,7 +11,10 @@ class MembreController {
     }
 
     def inscription() {
-        params.isSosie = params.boolean("isSosie")
+        if (params.isSosie)
+            params.isSosie = params.boolean("isSosie")
+        else
+            params.isSosie = false;
         Membre membre = new Membre(params);
 
         String validationInscription;

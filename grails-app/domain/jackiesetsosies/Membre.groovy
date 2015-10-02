@@ -20,8 +20,11 @@ class Membre {
         mdp blank: false
         ville blank: false
         sexe inList: ["F", "H"]
-        isSosie nullable: false
         idStar nullable: true
         idPhoto nullable: true
+    }
+
+    static mapping = {
+        isSosie defaultValue: false
     }
 }
