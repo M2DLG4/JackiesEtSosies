@@ -205,40 +205,37 @@
                     </div>
 
                     <div class="profile-usertitle-job">
-                        Developer
+                        Sosie de Johny Hallidey
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
-                <!-- SIDEBAR BUTTONS -->
-                <div class="profile-userbuttons">
-                    <button type="button"
-                            class="btn btn-success btn-sm">Follow</button>
-                    <button type="button"
-                            class="btn btn-danger btn-sm">Message</button>
-                </div>
-                <!-- END SIDEBAR BUTTONS -->
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                Profil</a>
+                        </li>
                         <li class="active">
+                            <a href="#">
+                                <i class="fa fa-newspaper-o"></i>
+                                Actus</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-calendar-check-o"></i>
+                                Evenements</a>
+                        </li>
+                        <li>
+                            <a href="/JackiesEtSosies/membre/deconnexion">
+                                <i class="fa fa-sign-out"></i>
+                                Déconnexion</a>
+                        </li>
+                        <li>
                             <a href="#">
                                 <i class="fa fa-credit-card"></i>
                                 Donation</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-user"></i>
-                                Account Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="glyphicon glyphicon-ok"></i>
-                                Tasks</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-flag"></i>
-                                Help</a>
                         </li>
                     </ul>
                 </div>
