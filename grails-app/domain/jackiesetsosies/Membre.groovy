@@ -17,6 +17,7 @@ class Membre {
         nom blank: false
         prenom blank: false
         mail email: true
+        mail unique: true
         mdp blank: false
         ville blank: false
         sexe inList: ["F", "H"]

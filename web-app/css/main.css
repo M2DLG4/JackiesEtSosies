@@ -2,6 +2,13 @@
     margin-bottom: 19px;
 }
 
+.navbar-brand {
+    padding-top: 5px;
+}
+.navbar-brand > img {
+    display: inline;
+}
+
 .form-signin input[type="text"], .form-signin input[type="password"], .form-signin input[type="email"] {
     margin-bottom: 5px;
     border-bottom-left-radius: 0;
