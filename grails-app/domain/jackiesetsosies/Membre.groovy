@@ -11,7 +11,7 @@ class Membre {
     String sexe;
     boolean isSosie;
     Star idStar;
-    Photo idPhoto;
+    String urlPhoto;
 
     static constraints = {
         nom blank: false
@@ -22,10 +22,10 @@ class Membre {
         ville blank: false
         sexe inList: ["F", "H"]
         idStar nullable: true
+        urlPhoto nullable: true
     }
 
     static mapping = {
         isSosie defaultValue: false
-        idPhoto defaultValue: new Photo(urlPhoto: "/JackiesEtSosies/static/images/placeholder-membre.png")
     }
 }
