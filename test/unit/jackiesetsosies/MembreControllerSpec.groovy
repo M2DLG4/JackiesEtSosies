@@ -79,4 +79,19 @@ class MembreControllerSpec extends Specification {
         then: "la vue est index"
         view.equals("/membre/index")
     }
+
+    void "test deconnexion membre"() {
+        given: "un membre connecté"
+        Membre m = Mock(Membre).save()
+        controller.membreService.connexionMembre(_,_) >> m
+        controller.connexion()
+        assert controller.session.getAttribute("user") == m
+
+        when: "on se déconnecte"
+        controller.deconnexion()
+
+        then: "l'utilisateur n'est plus connecté"
+        controller.session.getAttribute("user") == null
+        controller.session.getAttribute("mail") == null
+    }
 }

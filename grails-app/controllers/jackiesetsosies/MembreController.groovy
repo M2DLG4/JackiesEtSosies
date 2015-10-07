@@ -47,6 +47,11 @@ class MembreController {
             redirect(action: "actus")
     }
 
+    def deconnexion() {
+        session.removeAttribute("user")
+        session.removeAttribute("mail")
+    }
+
     def actus() {
         render(view: "actus")
     }
