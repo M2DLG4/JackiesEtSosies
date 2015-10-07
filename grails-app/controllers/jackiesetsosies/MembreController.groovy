@@ -7,6 +7,8 @@ class MembreController {
     final String INSCRIPTION_NOK = "Inscription impossible ! Veuillez réessayer."
     final String CONNEXION_OK = "Vous êtes maintenant connecté."
     final String CONNEXION_NOK = "Mail ou mot de passe erroné."
+    final String EDITION_OK = "La mise à jour du profil a été réalisé."
+    final String EDITION_NOK = "Mise à jour du profil impossible."
 
     def membreService
 
@@ -38,7 +40,7 @@ class MembreController {
         def mail = params.mail
         def mdp = params.mdp
 
-        session.setAttribute("user", membreService.connexionMembre(mail, mdp))
+        session.setAttribute("user", membreService.getMembre(mail, mdp))
 
         if (session.getAttribute("user") == null)
             render(view: "index", model: [erreur: CONNEXION_NOK])
@@ -58,5 +60,15 @@ class MembreController {
 
     def profil() {
         render(view: "profil")
+    }
+    def edition() {
+        String validationEdition;
+        if (membreService.editionMembre(session.getAttribute("user"), params)) {
+            session.setAttribute("user", membreService.getMembre(params.mail, params.mdp))
+            validationEdition = EDITION_OK;
+        } else {
+            validationEdition = EDITION_NOK;
+        }
+        render(controller: "Membre", view: "profil", model: [validation:validationEdition])
     }
 }

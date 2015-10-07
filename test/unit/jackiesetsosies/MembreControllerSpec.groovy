@@ -52,7 +52,7 @@ class MembreControllerSpec extends Specification {
     void "test une connexion valide d'un membre"() {
         given: "Une connexion avec mail et mot de passe"
         Membre m = Mock(Membre)
-        controller.membreService.connexionMembre(_,_) >> m
+        controller.membreService.getMembre(_,_) >> m
 
         when: "on connecte le membre"
         controller.connexion()
@@ -63,7 +63,7 @@ class MembreControllerSpec extends Specification {
 
     void "test une connexion non valide d'un membre"() {
         given: "Une connexion avec mail et mot de passe"
-        controller.membreService.connexionMembre(_,_) >> null
+        controller.membreService.getMembre(_,_) >> null
 
         when: "on connecte le membre"
         controller.connexion()
@@ -83,7 +83,7 @@ class MembreControllerSpec extends Specification {
     void "test deconnexion membre"() {
         given: "un membre connecté"
         Membre m = Mock(Membre).save()
-        controller.membreService.connexionMembre(_,_) >> m
+        controller.membreService.connexionMembre(_, _) >> m
         controller.connexion()
         assert controller.session.getAttribute("user") == m
 
@@ -93,5 +93,32 @@ class MembreControllerSpec extends Specification {
         then: "l'utilisateur n'est plus connecté"
         controller.session.getAttribute("user") == null
         controller.session.getAttribute("mail") == null
+    }
+
+    void "test edition profil correct"() {
+        given: "Un profil existant"
+        Membre m = Mock(Membre)
+        session.setAttribute("user", m);
+        controller.membreService.editionMembre(_,_) >> true
+        controller.membreService.getMembre(_,_) >> m
+
+        when: "on edite le membre"
+        controller.edition()
+
+        then: "la vue est index"
+        model.validation.equals(controller.EDITION_OK)
+    }
+
+    void "test edition profil incorrect"() {
+        given: "Un profil existant"
+        Membre m = Mock(Membre)
+        session.setAttribute("user", m);
+        controller.membreService.editionMembre(_,_) >> false
+
+        when: "on edite le membre"
+        controller.edition()
+
+        then: "la vue est index"
+        model.validation.equals(controller.EDITION_NOK)
     }
 }

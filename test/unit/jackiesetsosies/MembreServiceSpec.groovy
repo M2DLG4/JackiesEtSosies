@@ -35,7 +35,7 @@ class MembreServiceSpec extends Specification {
         service.membreDAOService.searchMembre(_) >> m
 
         when: "on effectue la requete de connexion avec les bonnes informations"
-        Membre res = service.connexionMembre(m.mail, m.mdp);
+        Membre res = service.getMembre(m.mail, m.mdp);
 
         then: "La connexion est validée"
         res == m
@@ -47,7 +47,7 @@ class MembreServiceSpec extends Specification {
         service.membreDAOService.searchMembre(_) >> m
 
         when: "on effectue la requete de connexion avec le mauvais mot de passe"
-        Membre res = service.connexionMembre(m.mail, "test");
+        Membre res = service.getMembre(m.mail, "test");
 
         then: "La connexion est impossible"
         res == null
@@ -58,7 +58,7 @@ class MembreServiceSpec extends Specification {
         service.membreDAOService.searchMembre(_) >> null
 
         when: "on effectue la requete de connexion"
-        Membre res = service.connexionMembre("test@test", "test");
+        Membre res = service.getMembre("test@test", "test");
 
         then: "La connexion est impossible"
         res == null

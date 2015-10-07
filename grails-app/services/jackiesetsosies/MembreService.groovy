@@ -8,15 +8,17 @@ class MembreService {
         return membreDAOService.addMembre(membre);
     }
 
-    Membre connexionMembre(String mail, String mdp) {
+    Membre getMembre(String mail, String mdp) {
         Membre m = membreDAOService.searchMembre(mail)
 
-        if (m.validate()) {
-            if (m.mdp.equals(mdp)) {
-                return m
-            }
+        if (m?.mdp.equals(mdp)) {
+            return m
         } else {
             return null
         }
+    }
+
+    Boolean editionMembre(Membre membre, Map params) {
+        return false;
     }
 }
