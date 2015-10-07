@@ -11,7 +11,7 @@ class MembreService {
     Membre connexionMembre(String mail, String mdp) {
         Membre m = membreDAOService.searchMembre(mail)
 
-        if (m) {
+        if (m.validate()) {
             if (m.mdp.equals(mdp)) {
                 return m
             }

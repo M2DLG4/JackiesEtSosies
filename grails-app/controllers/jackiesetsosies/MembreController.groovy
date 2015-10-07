@@ -55,4 +55,8 @@ class MembreController {
     def actus() {
         render(view: "actus")
     }
+
+    def profil() {
+        render(view: "profil")
+    }
 }
