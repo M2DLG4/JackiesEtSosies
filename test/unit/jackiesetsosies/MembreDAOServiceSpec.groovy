@@ -9,12 +9,4 @@ import spock.lang.Specification
 @TestFor(MembreDAOService)
 class MembreDAOServiceSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

@@ -1,14 +1,8 @@
 package jackiesetsosies
 
-import grails.transaction.Transactional
-
 class MembreService {
 
     def membreDAOService
-
-    def serviceMethod() {
-
-    }
 
     Membre inscriptionMembre(Membre membre) {
         return membreDAOService.addMembre(membre);

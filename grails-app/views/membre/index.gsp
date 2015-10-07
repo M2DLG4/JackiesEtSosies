@@ -84,7 +84,7 @@
                                    name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
                                    name="mdp" type="password">
-                            <br></br>
+                            ${erreur}
                             <input class="btn btn-lg btn-success btn-block"
                                    type="submit" id="login" value="Se connecter">
                         </fieldset>

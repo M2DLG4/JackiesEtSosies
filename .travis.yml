@@ -2,10 +2,10 @@ language: groovy
 jdk:
   - oraclejdk7
 script:
-- ./grailsw refresh-dependencies
-- ./grailsw test-app -echoOut -echoErr -coverage -xml
+  - ./grailsw refresh-dependencies
+  - ./grailsw test-app -echoOut -echoErr -coverage -xml
 after_success:
-- ./grailsw coveralls
+  - ./grailsw coveralls
 deploy:
   provider: heroku
   api_key: 5cf115ac-3a43-4254-a1b6-f2cd994dc2e7

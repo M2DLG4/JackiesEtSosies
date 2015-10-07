@@ -5,10 +5,6 @@ import grails.transaction.Transactional
 @Transactional
 class MembreDAOService {
 
-    def serviceMethod() {
-
-    }
-
     Membre addMembre(Membre membre) {
         return membre.save()
     }
