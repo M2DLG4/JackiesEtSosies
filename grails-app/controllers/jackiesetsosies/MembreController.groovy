@@ -50,8 +50,6 @@ class MembreController {
     def deconnexion() {
         session.removeAttribute("user")
         session.removeAttribute("mail")
-
-        redirect(action: "index")
     }
 
     def actus() {
