@@ -37,9 +37,6 @@ class MembreService {
                 case "ville":
                     membre.setVille(val);
                     break;
-                case "sexe":
-                    membre.setSexe(val);
-                    break;
                 case "isSosie":
                     membre.setIsSosie(val);
                     break;

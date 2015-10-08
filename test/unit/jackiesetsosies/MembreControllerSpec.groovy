@@ -102,6 +102,14 @@ class MembreControllerSpec extends Specification {
         view.equals("/membre/index")
     }
 
+    void "test afficher la page de modification de profil"() {
+        when: "on modifie son profil"
+        controller.edit()
+
+        then: "la vue est edit"
+        view.equals("/membre/edit")
+    }
+
     void "test deconnexion membre"() {
         given: "un membre connecté"
         Membre m = Mock(Membre).save()

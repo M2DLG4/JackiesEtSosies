@@ -66,6 +66,10 @@ class MembreController {
         render(view: "profil", model: [membre:membre])
     }
 
+    def edit() {
+        render(view: "edit")
+    }
+
     def edition() {
         if (params.isSosie)
             params.isSosie = params.boolean("isSosie")
