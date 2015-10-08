@@ -9,6 +9,8 @@ class MembreController {
     final String CONNEXION_NOK = "Mail ou mot de passe erroné."
     final String EDITION_OK = "La mise à jour du profil a été réalisé."
     final String EDITION_NOK = "Mise à jour du profil impossible."
+    final String PROFIL_NOK = "<img src='http://www.oyez-perigord.fr/Oyez_Perigord/de_linsolite_au_rigolo/Entrees/2014/8/1_Johnny_Depp,_cest_lui_files/shapeimage_3.png' /><h3>Le membre n'existe pas</h3>"
+
 
     def membreService
 
@@ -61,10 +63,12 @@ class MembreController {
     }
 
     def profil() {
-        System.out.println("PASSE DANS PROFIL")
         Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
-        System.out.println("MEMBRE : "+membre)
-        render(view: "profil", model: [membre:membre])
+
+        if(membre != null)
+            render(view: "profil", model: [membre:membre])
+        else
+            render(layout: "main", text: PROFIL_NOK)
     }
 
     def edit() {

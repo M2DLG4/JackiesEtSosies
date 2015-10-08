@@ -40,7 +40,7 @@
     }
     </style>
 </head>
-<body class="parallax-index" style="padding-top: 80px;">
+<body class="parallax-index">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

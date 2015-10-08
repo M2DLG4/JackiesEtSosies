@@ -126,6 +126,18 @@ class MembreControllerSpec extends Specification {
         controller.session.getAttribute("mail") == null
     }
 
+    void "test consultation profil inexistant"() {
+        given: "Un profil existant"
+        controller.membreService.getMembre(_) >> null
+        params.id = "3"
+
+        when: "on désire afficher ce profil"
+        controller.profil()
+
+        then: "une erreur est affichée"
+        controller.response.text.equals(controller.PROFIL_NOK)
+    }
+
     void "test edition profil correct"() {
         given: "Un profil existant"
         Membre m = Mock(Membre)
@@ -140,6 +152,8 @@ class MembreControllerSpec extends Specification {
         then: "la vue est index"
         model.validation.equals(controller.EDITION_OK)
     }
+
+
 
     void "test edition profil incorrect"() {
         given: "Un profil existant"
