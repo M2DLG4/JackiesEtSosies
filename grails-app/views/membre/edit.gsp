@@ -39,7 +39,7 @@
                             </div>
                             <input class="form-control" value="Rentrez l'URL de votre nouvelle image"
                                    <g:if test="${session.getAttribute("user").urlPhoto != null}">
-                                       value="${session.getAttribute("user").urlPhoto}"
+                                       placeholder="${session.getAttribute("user").urlPhoto}"
                                    </g:if>
                                    name="urlPhoto" type="text">
                             <input class="form-control" placeholder="Nouveau mot de passe"

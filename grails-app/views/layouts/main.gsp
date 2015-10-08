@@ -63,18 +63,23 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="/JackiesEtSosies/images/placeholder-membre.png"
-                         class="img-responsive img-circle" alt="">
+                    <g:if test="${session.getAttribute("user").urlPhoto.equals(null)}">
+                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
+                    </g:if>
+                    <g:else>
+                        <p><img src="${session.getAttribute("user").urlPhoto}" class="img-responsive"/></p>
+                    </g:else>
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">
-                        Marcus Doe
+                        ${session.getAttribute("user").prenom} ${session.getAttribute("user").nom}
                     </div>
-
                     <div class="profile-usertitle-job">
-                        Sosie de Johny Hallidey
+                        <g:if test="${session.getAttribute("user").isSosie == true}">
+                            <p>Sosie de ${session.getAttribute("user").idStar}</p>
+                        </g:if>
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
