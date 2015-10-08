@@ -76,7 +76,6 @@ class MembreController {
 
         String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
-            session.setAttribute("user", membreService.getMembre(params.id))
             validationEdition = EDITION_OK;
         } else {
             validationEdition = EDITION_NOK;

@@ -133,7 +133,6 @@ class MembreControllerSpec extends Specification {
         controller.membreService.editionMembre(_,_) >> true
         controller.membreService.getMembre(_) >> m
         params.isSosie = "on"
-        params.id = 1
 
         when: "on edite le membre"
         controller.edition()
