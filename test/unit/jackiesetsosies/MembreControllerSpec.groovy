@@ -83,7 +83,7 @@ class MembreControllerSpec extends Specification {
 
     void "test afficher la page de gestion de profil"() {
         given: "Une connexion avec mail et mot de passe"
-        params.id = 1
+        params.id = "1"
         Membre m = Mock(Membre)
         controller.membreService.getMembre(_) >> m
 
