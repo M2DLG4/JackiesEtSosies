@@ -40,13 +40,13 @@ class MembreController {
         def mail = params.mail
         def mdp = params.mdp
 
-        session.setAttribute("user", membreService.getMembre(mail, mdp))
+        Membre membre = membreService.getMembre(mail, mdp)
 
-        if (session.getAttribute("user") == null)
+        if (membre == null)
             render(view: "index", model: [erreur: CONNEXION_NOK])
         else
-            session.setAttribute("mail", mail)
-            redirect(action: "actus")
+            session.setAttribute("user", membre)
+            redirect(action: "profil", id: membre.id)
     }
 
     def deconnexion() {
@@ -59,8 +59,10 @@ class MembreController {
     }
 
     def profil() {
-        render(view: "profil")
+        Membre membre = membreService.getMembre(params.get("id"))
+        render(view: "profil", model: [membre:membre])
     }
+
     def edition() {
         if (params.isSosie)
             params.isSosie = params.boolean("isSosie")

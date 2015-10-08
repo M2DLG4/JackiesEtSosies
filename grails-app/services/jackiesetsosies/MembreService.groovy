@@ -50,6 +50,12 @@ class MembreService {
         }
         membreDAOService.editerMembre(membre);
 
-        return ! membre.hasErrors();
+        return !membre.hasErrors();
+    }
+
+    Membre getMembre(int id) {
+        Membre m = membreDAOService.searchMembre(id)
+
+        return m
     }
 }

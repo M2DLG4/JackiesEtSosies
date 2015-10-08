@@ -16,4 +16,8 @@ class MembreDAOService {
     Membre editerMembre(Membre membre) {
         return membre.save()
     }
+
+    Membre searchMembre(int id) {
+        return Membre.findById(id)
+    }
 }
