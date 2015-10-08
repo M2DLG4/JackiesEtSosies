@@ -1,3 +1,7 @@
+body > div.container {
+	margin-top: 40px;
+}
+
 .navbar-static-top {
     margin-bottom: 19px;
 }

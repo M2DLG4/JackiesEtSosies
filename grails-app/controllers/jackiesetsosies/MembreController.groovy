@@ -60,7 +60,9 @@ class MembreController {
     }
 
     def profil() {
-        Membre membre = membreService.getMembre(params.get("id"))
+        System.out.println("PASSE DANS PROFIL")
+        Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
+        System.out.println("MEMBRE : "+membre)
         render(view: "profil", model: [membre:membre])
     }
 

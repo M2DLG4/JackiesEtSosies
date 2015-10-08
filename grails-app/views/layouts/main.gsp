@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
@@ -25,98 +26,101 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
-                <a class="navbar-brand" href="#"><img
-                        src="${resource(dir: 'images', file: 'android-icon-36x36.png')}"> Jackie & Sosies
-                </a>
-            </div>
-            <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
-            <div id="navbar">
-                <ul class="nav navbar-nav navbar-right col-md-3">
-                    <li>
-
-                        <form>
-                            <div class="input-group stylish-input-group">
-                                <input type="text" class="form-control"
-                                       placeholder="Search">
-                                <span class="input-group-addon">
-                                    <button type="submit">
-                                        <span class="fa fa-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-
-                    </li>
-
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
-
-
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <div class="row profile">
-            <div class="col-md-3">
-                <div class="profile-sidebar">
-                    <!-- SIDEBAR USERPIC -->
-                    <div class="profile-userpic">
-                        <img src="/JackiesEtSosies/images/placeholder-membre.png"
-                             class="img-responsive img-circle" alt="">
-                    </div>
-                    <!-- END SIDEBAR USERPIC -->
-                    <!-- SIDEBAR USER TITLE -->
-                    <div class="profile-usertitle">
-                        <div class="profile-usertitle-name">
-                            Marcus Doe
-                        </div>
+        <div class="navbar-header">
+            <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
+            <a class="navbar-brand" href="#"><img
+                    src="${resource(dir: 'images', file: 'android-icon-36x36.png')}"> Jackie & Sosies
+            </a>
+        </div>
+        <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
+        <div id="navbar">
+            <ul class="nav navbar-nav navbar-right col-md-3">
+                <li>
 
-                        <div class="profile-usertitle-job">
-                            Sosie de Johny Hallidey
+                    <form>
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control"
+                                   placeholder="Search">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </span>
                         </div>
-                    </div>
-                    <!-- END SIDEBAR USER TITLE -->
-                    <!-- SIDEBAR MENU -->
-                    <div class="profile-usermenu">
-                        <ul class="nav">
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-user"></i>
-                                    Profil</a>
-                            </li>
-                            <li class="active">
-                                <a href="#">
-                                    <i class="fa fa-newspaper-o"></i>
-                                    Actus</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                    Evenements</a>
-                            </li>
-                            <li>
-                                <a href="/JackiesEtSosies/membre/deconnexion">
-                                    <i class="fa fa-sign-out"></i>
-                                    Déconnexion</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-credit-card"></i>
-                                    Donation</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- END MENU -->
+                    </form>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="/JackiesEtSosies/images/placeholder-membre.png"
+                         class="img-responsive img-circle" alt="">
                 </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Marcus Doe
+                    </div>
+
+                    <div class="profile-usertitle-job">
+                        Sosie de Johny Hallidey
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                Profil</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                                <i class="fa fa-newspaper-o"></i>
+                                Actus</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-calendar-check-o"></i>
+                                Evenements</a>
+                        </li>
+                        <li>
+                            <a href="/JackiesEtSosies/membre/deconnexion">
+                                <i class="fa fa-sign-out"></i>
+                                Déconnexion</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-credit-card"></i>
+                                Donation</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
             </div>
         </div>
-    </div>
 
-    <script src="${resource(dir: 'js', file: 'jquery-1.11.3.min.js')}"></script>
-    <script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
-    <script src="${resource(dir: 'js', file: 'search.js')}"></script>
+        <div class="col-md-9">
+            <g:layoutBody/>
+        </div>
+
+    </div>
+</div>
+
+<script src="${resource(dir: 'js', file: 'jquery-1.11.3.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'search.js')}"></script>
 </body>
 </html>
