@@ -82,6 +82,7 @@ class MembreServiceSpec extends Specification {
         Membre m = Mock(Membre);
         m.hasErrors() >> false
         service.membreDAOService.saveMembre(_) >> m
+        service.membreDAOService.searchMembre(_) >> m
         def params = new HashMap(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
                 ville:ville, isSosie: isSosie, idStar: Mock(Star), urlPhoto: urlPhoto);
 
@@ -90,7 +91,6 @@ class MembreServiceSpec extends Specification {
 
         then: "La modification a été réalisée"
         res == true
-
 
         where: "avec le jeu de donnees suivant"
         nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie | urlPhoto

@@ -141,6 +141,7 @@ class MembreControllerSpec extends Specification {
     void "test edition profil correct"() {
         given: "Un profil existant"
         Membre m = Mock(Membre)
+        m.getId() >> 1
         session.setAttribute("user", m);
         controller.membreService.editionMembre(_,_) >> true
         controller.membreService.getMembre(_) >> m
@@ -150,7 +151,7 @@ class MembreControllerSpec extends Specification {
         controller.edition()
 
         then: "la vue est index"
-        model.validation.equals(controller.EDITION_OK)
+        flash.message != null
     }
 
 
@@ -166,6 +167,6 @@ class MembreControllerSpec extends Specification {
         controller.edition()
 
         then: "la vue est index"
-        model.validation.equals(controller.EDITION_NOK)
+        flash.message != null
     }
 }

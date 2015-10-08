@@ -37,10 +37,10 @@
                                     > Êtes-vous le sosie de quelqu'un d'autre ?
                                 </label>
                             </div>
-                            <input class="form-control" value="Rentrez l'URL de votre nouvelle image"
-                                   <g:if test="${session.getAttribute("user").urlPhoto != null}">
-                                       placeholder="${session.getAttribute("user").urlPhoto}"
-                                   </g:if>
+                            <input class="form-control" placeholder="Rentrez l'URL de votre nouvelle image"
+                                    <g:if test="${session.getAttribute("user").urlPhoto.size() > 0}">
+                                        value="${session.getAttribute("user").urlPhoto}"
+                                    </g:if>
                                    name="urlPhoto" type="text">
                             <input class="form-control" placeholder="Nouveau mot de passe"
                                    name="mdp" type="password">
@@ -54,8 +54,15 @@
         </div>
         <div class="col-md-5">
             <br/>
-          <img src="http://www.nicematin.com/media_nicematin/imagecache/article-taille-normale-nm/nm_photo/2009/10/18/nm-photo-269303.jpg"
-             width="500" height="340"/>
+            <g:if test="${session.getAttribute("user").urlPhoto.size() > 0}">
+                <img src="${session.getAttribute("user").urlPhoto}"
+                     width="500" height="340"/>
+            </g:if>
+            <g:else>
+                <img src="/JackiesEtSosies/images/placeholder-membre.png"
+                     width="500" height="340"/>
+            </g:else>
+
         </div>
     </div>
 

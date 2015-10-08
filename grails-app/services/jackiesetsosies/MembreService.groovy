@@ -18,7 +18,9 @@ class MembreService {
         }
     }
 
-    Boolean editionMembre(Membre membre, Map params) {
+    Boolean editionMembre(Membre membreSession, Map params) {
+        Membre membre = membreDAOService.searchMembre(membreSession.id)
+
         for (String key : params.keySet()) {
             def val = params.get(key)
             switch (key) {
@@ -32,7 +34,9 @@ class MembreService {
                     membre.setMail(val);
                     break;
                 case "mdp":
-                    membre.setMdp(val);
+                    if (! val.isEmpty()) {
+                        membre.setMdp(val);
+                    }
                     break;
                 case "ville":
                     membre.setVille(val);
@@ -41,11 +45,13 @@ class MembreService {
                     membre.setIsSosie(val);
                     break;
                 case "urlPhoto":
-                    membre.setUrlPhoto(val);
+                    if (! val.isEmpty()) {
+                        membre.setUrlPhoto(val);
+                    }
                     break;
             }
         }
-        membreDAOService.saveMembre(membre);
+        membre = membreDAOService.saveMembre(membre);
 
         return !membre.hasErrors();
     }
@@ -53,6 +59,10 @@ class MembreService {
     Membre getMembre(int id) {
         Membre m = membreDAOService.searchMembre(id)
 
+        return m
+    }
+    Membre getMembre(long id) {
+        Membre m = membreDAOService.searchMembre(id)
         return m
     }
 

@@ -24,4 +24,8 @@ class MembreDAOService {
     Membre searchMembre(int id) {
         return Membre.findById(id)
     }
+
+    Membre searchMembre(long id) {
+        return Membre.findById(id)
+    }
 }

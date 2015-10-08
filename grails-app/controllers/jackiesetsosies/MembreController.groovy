@@ -81,10 +81,13 @@ class MembreController {
 
         String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
+            session.setAttribute("user", membreService.getMembre(session.getAttribute("user").id));
             validationEdition = EDITION_OK;
         } else {
             validationEdition = EDITION_NOK;
         }
-        render(controller: "Membre", view: "profil", model: [validation:validationEdition])
+
+        flash.message = validationEdition
+        redirect(action: "profil", id: session.getAttribute("user").getId(), params:[validation:validationEdition])
     }
 }
