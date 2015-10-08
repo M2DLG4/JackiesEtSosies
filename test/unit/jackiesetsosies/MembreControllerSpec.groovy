@@ -52,24 +52,46 @@ class MembreControllerSpec extends Specification {
     void "test une connexion valide d'un membre"() {
         given: "Une connexion avec mail et mot de passe"
         Membre m = Mock(Membre)
-        controller.membreService.getMembre(_,_) >> m
+        m.getId() >> 1
+        controller.membreService.connexionMembre(_,_) >> m
 
         when: "on connecte le membre"
         controller.connexion()
 
         then: "La connexion est invalidée"
-        response.getRedirectedUrl().equals("/membre/actus")
+        response.getRedirectedUrl().equals("/membre/profil/1")
     }
 
     void "test une connexion non valide d'un membre"() {
         given: "Une connexion avec mail et mot de passe"
-        controller.membreService.getMembre(_,_) >> null
+        controller.membreService.connexionMembre(_,_) >> null
 
         when: "on connecte le membre"
         controller.connexion()
 
         then: "La connexion est invalidée"
         model.erreur.equals(controller.CONNEXION_NOK)
+    }
+
+    void "test afficher la page d'actus"() {
+        when: "on se connecte à la page actu"
+        controller.actus()
+
+        then: "la vue est actus"
+        view.equals("/membre/actus")
+    }
+
+    void "test afficher la page de gestion de profil"() {
+        given: "Une connexion avec mail et mot de passe"
+        params.id = 1
+        Membre m = Mock(Membre)
+        controller.membreService.getMembre(_) >> m
+
+        when: "on se connecte à la gestion de profil"
+        controller.profil()
+
+        then: "la vue est profil"
+        view.equals("/membre/profil")
     }
 
     void "test afficher la page d'index"() {
@@ -83,6 +105,7 @@ class MembreControllerSpec extends Specification {
     void "test deconnexion membre"() {
         given: "un membre connecté"
         Membre m = Mock(Membre).save()
+        m.getId() >> 1
         controller.membreService.connexionMembre(_, _) >> m
         controller.connexion()
         assert controller.session.getAttribute("user") == m
@@ -100,8 +123,9 @@ class MembreControllerSpec extends Specification {
         Membre m = Mock(Membre)
         session.setAttribute("user", m);
         controller.membreService.editionMembre(_,_) >> true
-        controller.membreService.getMembre(_,_) >> m
+        controller.membreService.getMembre(_) >> m
         params.isSosie = "on"
+        params.id = 1
 
         when: "on edite le membre"
         controller.edition()

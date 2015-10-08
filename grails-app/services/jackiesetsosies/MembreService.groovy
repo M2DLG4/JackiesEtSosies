@@ -5,10 +5,10 @@ class MembreService {
     def membreDAOService
 
     Membre inscriptionMembre(Membre membre) {
-        return membreDAOService.addMembre(membre);
+        return membreDAOService.saveMembre(membre);
     }
 
-    Membre getMembre(String mail, String mdp) {
+    Membre connexionMembre(String mail, String mdp) {
         Membre m = membreDAOService.searchMembre(mail)
 
         if (m?.mdp.equals(mdp)) {
@@ -48,7 +48,7 @@ class MembreService {
                     break;
             }
         }
-        membreDAOService.editerMembre(membre);
+        membreDAOService.saveMembre(membre);
 
         return !membre.hasErrors();
     }
@@ -57,5 +57,9 @@ class MembreService {
         Membre m = membreDAOService.searchMembre(id)
 
         return m
+    }
+
+    Boolean supprimerMembre(Membre membre) {
+        return membreDAOService.supprimerMembre(membre);
     }
 }

@@ -40,13 +40,14 @@ class MembreController {
         def mail = params.mail
         def mdp = params.mdp
 
-        Membre membre = membreService.getMembre(mail, mdp)
+        Membre membre = membreService.connexionMembre(mail, mdp)
 
-        if (membre == null)
+        if (membre == null) {
             render(view: "index", model: [erreur: CONNEXION_NOK])
-        else
+        } else {
             session.setAttribute("user", membre)
-            redirect(action: "profil", id: membre.id)
+            redirect(action: "profil", id: membre.getId())
+        }
     }
 
     def deconnexion() {
@@ -69,7 +70,7 @@ class MembreController {
 
         String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
-            session.setAttribute("user", membreService.getMembre(params.mail, params.mdp))
+            session.setAttribute("user", membreService.getMembre(params.id))
             validationEdition = EDITION_OK;
         } else {
             validationEdition = EDITION_NOK;
