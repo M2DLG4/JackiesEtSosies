@@ -24,7 +24,7 @@
     <p>Ville : ${membre.ville}</p>
     <p>Adresse mail : ${membre.mail}</p>
     <g:if test="${membre.id == session.getAttribute("user").id}">
-        <a href="" class="btn btn-primary pull-right">Editer mon profil</a>
+        <a href="/JackiesEtSosies/membre/edit/${membre.id}" class="btn btn-primary pull-right">Editer mon profil</a>
     </g:if>
     <g:else>
         <a href="" class="btn btn-success pull-right">Suivre ce membre</a>
