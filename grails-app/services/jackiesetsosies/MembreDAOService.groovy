@@ -12,4 +12,8 @@ class MembreDAOService {
     Membre searchMembre(String mail) {
         return Membre.findByMail(mail)
     }
+
+    Membre editerMembre(Membre membre) {
+        return membre.save()
+    }
 }

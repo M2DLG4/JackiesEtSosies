@@ -62,6 +62,9 @@ class MembreController {
         render(view: "profil")
     }
     def edition() {
+        if (params.isSosie)
+            params.isSosie = params.boolean("isSosie")
+
         String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
             session.setAttribute("user", membreService.getMembre(params.mail, params.mdp))

@@ -19,6 +19,37 @@ class MembreService {
     }
 
     Boolean editionMembre(Membre membre, Map params) {
-        return false;
+        for (String key : params.keySet()) {
+            def val = params.get(key)
+            switch (key) {
+                case "nom":
+                    membre.setNom(val);
+                    break;
+                case "prenom":
+                    membre.setPrenom(val);
+                    break;
+                case "mail":
+                    membre.setMail(val);
+                    break;
+                case "mdp":
+                    membre.setMdp(val);
+                    break;
+                case "ville":
+                    membre.setVille(val);
+                    break;
+                case "sexe":
+                    membre.setSexe(val);
+                    break;
+                case "isSosie":
+                    membre.setIsSosie(val);
+                    break;
+                case "urlPhoto":
+                    membre.setUrlPhoto(val);
+                    break;
+            }
+        }
+        membreDAOService.editerMembre(membre);
+
+        return ! membre.hasErrors();
     }
 }

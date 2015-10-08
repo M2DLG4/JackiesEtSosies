@@ -101,6 +101,7 @@ class MembreControllerSpec extends Specification {
         session.setAttribute("user", m);
         controller.membreService.editionMembre(_,_) >> true
         controller.membreService.getMembre(_,_) >> m
+        params.isSosie = "on"
 
         when: "on edite le membre"
         controller.edition()
@@ -114,6 +115,7 @@ class MembreControllerSpec extends Specification {
         Membre m = Mock(Membre)
         session.setAttribute("user", m);
         controller.membreService.editionMembre(_,_) >> false
+        params.isSosie = null
 
         when: "on edite le membre"
         controller.edition()
