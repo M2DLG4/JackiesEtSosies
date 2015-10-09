@@ -19,7 +19,7 @@ class MembreControllerSpec extends Specification {
         controller.inscription()
 
         then: "L'inscription est validée"
-        model.validation.equals(controller.INSCRIPTION_OK)
+        flash.message.equals(controller.INSCRIPTION_OK)
     }
 
     void "test une inscription valide avec un parametre"() {
@@ -33,7 +33,7 @@ class MembreControllerSpec extends Specification {
         controller.inscription()
 
         then: "L'inscription est validée"
-        model.validation.equals(controller.INSCRIPTION_OK)
+        flash.message.equals(controller.INSCRIPTION_OK)
     }
 
     void "test une inscription invalide"() {
@@ -46,7 +46,7 @@ class MembreControllerSpec extends Specification {
         controller.inscription()
 
         then: "L'inscription est invalidée"
-        model.validation.equals(controller.INSCRIPTION_NOK)
+        flash.error.equals(controller.INSCRIPTION_NOK)
     }
 
     void "test une connexion valide d'un membre"() {
@@ -70,7 +70,7 @@ class MembreControllerSpec extends Specification {
         controller.connexion()
 
         then: "La connexion est invalidée"
-        model.erreur.equals(controller.CONNEXION_NOK)
+        flash.error.equals(controller.CONNEXION_NOK)
     }
 
     void "test afficher la page d'actus"() {
@@ -151,7 +151,7 @@ class MembreControllerSpec extends Specification {
         controller.edition()
 
         then: "la vue est index"
-        flash.message != null
+        flash.message.equals(controller.EDITION_OK)
     }
 
 
@@ -167,6 +167,6 @@ class MembreControllerSpec extends Specification {
         controller.edition()
 
         then: "la vue est index"
-        flash.message != null
+        flash.error.equals(controller.EDITION_NOK)
     }
 }

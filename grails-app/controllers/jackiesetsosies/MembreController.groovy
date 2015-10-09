@@ -27,17 +27,15 @@ class MembreController {
         Membre membre = new Membre(nom: params.nom, prenom: params.prenom, ville: params.ville,
                 sexe: params.sexe, isSosie: params.isSosie, mail: params.mail, mdp: params.mdp);
 
-        String validationInscription;
-
         Membre membreinscrit = membreService.inscriptionMembre(membre)
 
         if (membreinscrit != null && !membreinscrit.hasErrors()) {
-            validationInscription = INSCRIPTION_OK;
+            flash.message = INSCRIPTION_OK
         } else {
-            validationInscription = INSCRIPTION_NOK;
+            flash.error = INSCRIPTION_NOK
         }
 
-        render(view: "index", model: [validation:validationInscription])
+        render(view: "index")
     }
 
     def connexion() {
@@ -47,8 +45,10 @@ class MembreController {
         Membre membre = membreService.connexionMembre(mail, mdp)
 
         if (membre == null) {
-            render(view: "index", model: [erreur: CONNEXION_NOK])
+            render(view: "index")
+            flash.error = CONNEXION_NOK
         } else {
+            flash.message = CONNEXION_OK
             session.setAttribute("user", membre)
             redirect(action: "profil", id: membre.getId())
         }
@@ -83,15 +83,13 @@ class MembreController {
         else
             params.isSosie = false
 
-        String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
             session.setAttribute("user", membreService.getMembre(session.getAttribute("user").id));
-            validationEdition = EDITION_OK;
+            flash.message = EDITION_OK
         } else {
-            validationEdition = EDITION_NOK;
+            flash.error = EDITION_NOK
         }
 
-        flash.message = validationEdition
-        redirect(action: "profil", id: session.getAttribute("user").getId(), params:[validation:validationEdition])
+        redirect(action: "profil", id: session.getAttribute("user").getId())
     }
 }

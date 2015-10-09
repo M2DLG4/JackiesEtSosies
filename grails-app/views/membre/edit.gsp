@@ -14,7 +14,7 @@
         <h3>Modification de votre Profil</h3>
 
         <br style="font-size:0.98em;">
-            Ici vous pouvez modifier votre profil ! N'oubliez pas de rentrer votre ancien mot de passe ! <br/> xoxo
+            Ici vous pouvez modifier votre profil !
 
     </div>
 
@@ -44,7 +44,6 @@
                                    name="urlPhoto" type="text">
                             <input class="form-control" placeholder="Nouveau mot de passe"
                                    name="mdp" type="password">
-                            ${validation}
                             <br/>
                             <g:actionSubmit class="btn btn-lg btn-success btn-block" action="edition" type="submit" id="edit" value="Valider" />
                         </fieldset>
@@ -55,12 +54,10 @@
         <div class="col-md-5">
             <br/>
             <g:if test="${session.getAttribute("user").urlPhoto && session.getAttribute("user").urlPhoto.size() > 0}">
-                <img src="${session.getAttribute("user").urlPhoto}"
-                     width="500" height="340"/>
+                <img src="${session.getAttribute("user").urlPhoto}"/>
             </g:if>
             <g:else>
-                <img src="/JackiesEtSosies/images/placeholder-membre.png"
-                     width="500" height="340"/>
+                <img src="/JackiesEtSosies/images/placeholder-membre.png" />
             </g:else>
 
         </div>

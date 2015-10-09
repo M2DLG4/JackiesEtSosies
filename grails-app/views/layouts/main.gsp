@@ -58,6 +58,18 @@
 
 
 <div class="container">
+    <g:if test="${flash.error}">
+        <div class="alert alert-error alert-dismissible fade in" style="display: block" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            ${flash.error}
+        </div>
+    </g:if>
+    <g:if test="${flash.message}">
+        <div class="alert alert-success alert-dismissible fade in" role="alert" style="display: block">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            ${flash.message}
+        </div>
+    </g:if>
     <div class="row profile">
         <div class="col-md-3">
             <div class="profile-sidebar">
