@@ -29,7 +29,9 @@ class MembreController {
 
         String validationInscription;
 
-        if (!membreService.inscriptionMembre(membre)?.hasErrors()) {
+        Membre membreinscrit = membreService.inscriptionMembre(membre)
+
+        if (membreinscrit != null && !membreinscrit.hasErrors()) {
             validationInscription = INSCRIPTION_OK;
         } else {
             validationInscription = INSCRIPTION_NOK;
