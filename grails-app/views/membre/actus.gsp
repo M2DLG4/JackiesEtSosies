@@ -11,6 +11,6 @@
 </head>
 
 <body>
-${session.getAttribute("mail")}
+${session.getAttribute("membre").id}
 </body>
 </html>

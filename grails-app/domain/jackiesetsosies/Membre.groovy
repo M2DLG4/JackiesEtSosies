@@ -17,7 +17,7 @@ class Membre {
         nom blank: false
         prenom blank: false
         mail email: true, unique: true
-        mdp blank: false
+        mdp minSize: 2, maxSize : 15
         ville blank: false
         sexe inList: ["F", "H"]
         idStar nullable: true

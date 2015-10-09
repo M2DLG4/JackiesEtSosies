@@ -40,7 +40,7 @@
     }
     </style>
 </head>
-<body class="parallax-index" style="padding-top: 80px;">
+<body class="parallax-index">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -51,13 +51,25 @@
         <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
         <div id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/" class="active">Connexion / Inscription</a></li>
+                <li>Connexion / Inscription</li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
 <div class="container">
+    <g:if test="${flash.error}">
+        <div class="alert alert-danger alert-dismissible fade in" style="display: block" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            ${flash.error}
+        </div>
+    </g:if>
+    <g:if test="${flash.message}">
+        <div class="alert alert-success alert-dismissible fade in" role="alert" style="display: block">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            ${flash.message}
+        </div>
+    </g:if>
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -84,7 +96,6 @@
                                    name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
                                    name="mdp" type="password">
-                            ${erreur}
                             <input class="btn btn-lg btn-success btn-block"
                                    type="submit" id="login" value="Se connecter">
                         </fieldset>
@@ -128,7 +139,6 @@
                                    name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
                                    name="mdp" type="password">
-                            ${validation}
                             <g:actionSubmit class="btn btn-lg btn-success btn-block" action="inscription" type="submit" id="login" value="S'inscrire" />
                         </fieldset>
                     </g:form>

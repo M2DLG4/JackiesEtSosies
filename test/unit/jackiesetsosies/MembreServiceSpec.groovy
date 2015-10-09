@@ -20,7 +20,7 @@ class MembreServiceSpec extends Specification {
     void "test une inscription valide"() {
         given: "Un membre désirant s'inscrire"
         Membre membre = Mock(Membre)
-        service.membreDAOService.addMembre(_) >> membre
+        service.membreDAOService.saveMembre(_) >> membre
 
         when: "on inscrit le membre"
         Membre res = service.inscriptionMembre(membre);
@@ -62,5 +62,52 @@ class MembreServiceSpec extends Specification {
 
         then: "La connexion est impossible"
         res == null
+    }
+
+    void "test recuperer membre"() {
+        given: "Un utilisateur connecte"
+        service.membreDAOService.getMembre(_) >> null
+
+        when: "on effectue la recherche de membre"
+        Membre res = service.getMembre(1);
+        Membre res2 = service.getMembre((Long) 1);
+
+        then: "La connexion est impossible"
+        res == null
+        res2 == null
+    }
+
+
+
+    void "test la modification d'un utilisateur"() {
+        given: "Un utilisateur désirant modifier son profil"
+        Membre m = Mock(Membre);
+        m.hasErrors() >> false
+        service.membreDAOService.saveMembre(_) >> m
+        service.membreDAOService.searchMembre(_) >> m
+        def params = new HashMap(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
+                ville:ville, isSosie: isSosie, idStar: Mock(Star), urlPhoto: urlPhoto);
+
+        when: "on effectue la requete de modification"
+        Boolean res = service.editionMembre(m, params);
+
+        then: "La modification a été réalisée"
+        res == true
+
+        where: "avec le jeu de donnees suivant"
+        nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie | urlPhoto
+        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | "machin.png"
+    }
+
+    void "test suppression d'un utilisateur"() {
+        given: "Un utilisateur existant"
+        Membre membre = Mock(Membre);
+        service.membreDAOService.supprimerMembre(_) >> true
+
+        when: "on effectue la requete de suppression"
+        Boolean res = service.supprimerMembre(membre);
+
+        then: "La modification a été réalisée"
+        res == true
     }
 }
