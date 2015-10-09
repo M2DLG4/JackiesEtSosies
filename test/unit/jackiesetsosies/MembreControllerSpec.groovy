@@ -40,7 +40,7 @@ class MembreControllerSpec extends Specification {
         given: "Une demande d'inscription avec toutes les informations"
         Membre m = Mock(Membre);
         m.hasErrors () >> true
-        controller.membreService.inscriptionMembre(_) >> m
+        controller.membreService.inscriptionMembre(_) >> null
 
         when: "on inscrit le membre"
         controller.inscription()
