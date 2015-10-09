@@ -64,10 +64,10 @@
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
                     <g:if test="${session.getAttribute("user").urlPhoto.equals(null)}">
-                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
+                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
                     </g:if>
                     <g:else>
-                        <p><img src="${session.getAttribute("user").urlPhoto}" class="img-responsive"/></p>
+                        <p><img src="${session.getAttribute("user").urlPhoto}" class="img-responsive img-circle"/></p>
                     </g:else>
                 </div>
                 <!-- END SIDEBAR USERPIC -->
@@ -86,15 +86,17 @@
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                Profil</a>
-                        </li>
                         <li class="active">
-                            <a href="#">
+                            <g:link controller="membre" action="profil" id="${session.getAttribute("user").id}">
+                                <i class="fa fa-user"></i>
+                                Profil
+                            </g:link>
+                        </li>
+                        <li>
+                            <g:link controller="membre" action="actus">
                                 <i class="fa fa-newspaper-o"></i>
-                                Actus</a>
+                                Actus
+                            </g:link>
                         </li>
                         <li>
                             <a href="#">
@@ -102,9 +104,10 @@
                                 Evenements</a>
                         </li>
                         <li>
-                            <a href="/JackiesEtSosies/membre/deconnexion">
+                            <g:link controller="membre" action="deconnexion">
                                 <i class="fa fa-sign-out"></i>
-                                Déconnexion</a>
+                                Déconnexion
+                            </g:link>
                         </li>
                         <li>
                             <a href="#">
