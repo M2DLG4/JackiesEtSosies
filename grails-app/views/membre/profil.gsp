@@ -24,7 +24,7 @@
     <p>Ville : ${membre.ville}</p>
     <p>Adresse mail : ${membre.mail}</p>
     <g:if test="${membre.id == session.getAttribute("user").id}">
-        <g:link controller="membre" action="edit" id="${session.getAttribute("user").id}" class="btn btn-primary pull-right">
+        <g:link controller="membre" action="edit" class="btn btn-primary pull-right">
             Editer mon profil
         </g:link>
     </g:if>
