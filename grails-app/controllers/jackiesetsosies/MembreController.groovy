@@ -80,6 +80,8 @@ class MembreController {
     def edition() {
         if (params.isSosie)
             params.isSosie = params.boolean("isSosie")
+        else
+            params.isSosie = false
 
         String validationEdition;
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
