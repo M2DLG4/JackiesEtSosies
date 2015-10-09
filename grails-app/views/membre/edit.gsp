@@ -38,7 +38,7 @@
                                 </label>
                             </div>
                             <input class="form-control" placeholder="Rentrez l'URL de votre nouvelle image"
-                                    <g:if test="${session.getAttribute("user").urlPhoto.size() > 0}">
+                                    <g:if test="${session.getAttribute("user").urlPhoto && session.getAttribute("user").urlPhoto.size() > 0}">
                                         value="${session.getAttribute("user").urlPhoto}"
                                     </g:if>
                                    name="urlPhoto" type="text">
@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-5">
             <br/>
-            <g:if test="${session.getAttribute("user").urlPhoto.size() > 0}">
+            <g:if test="${session.getAttribute("user").urlPhoto && session.getAttribute("user").urlPhoto.size() > 0}">
                 <img src="${session.getAttribute("user").urlPhoto}"
                      width="500" height="340"/>
             </g:if>

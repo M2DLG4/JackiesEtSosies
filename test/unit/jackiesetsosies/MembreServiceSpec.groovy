@@ -70,9 +70,11 @@ class MembreServiceSpec extends Specification {
 
         when: "on effectue la recherche de membre"
         Membre res = service.getMembre(1);
+        Membre res2 = service.getMembre((Long) 1);
 
         then: "La connexion est impossible"
         res == null
+        res2 == null
     }
 
 
