@@ -53,7 +53,7 @@ class MembreService {
         }
         membre = membreDAOService.saveMembre(membre);
 
-        return !membre.hasErrors();
+        return (membre != null && !membre?.hasErrors());
     }
 
     Membre getMembre(int id) {
