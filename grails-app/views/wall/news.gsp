@@ -116,47 +116,30 @@
         <div class="col-md-9" id="timeline">
             <h3 class="text-center">Découvrez ce que vos amis et sosies préférés partagent !</h3>
             <br>
-
-            <div class="row" id="new_message">
-                <form accept-charset="UTF-8" action="" method="POST">
-                    <div class="col-md-10 col-md-offset-1 well">
-                        <textarea class="form-control" name="new_message"
-                                  placeholder="Type in your message"
-                                  rows="5"></textarea>
-
-                        <div style="margin-top:10px">
-                            <h6 class="pull-right "><span
-                                    class="nb_carac_remaining">320</span> characters remaining
-                            </h6>
-                            <button class="btn btn-info"
-                                    type="submit">Post New Message</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
+            <g:include controller="post" action="" />
             <div class="qa-message-list" id="wallmessages">
-                <div class="message-item" id="m16">
-                    <div class="message-inner">
-                        <div class="message-head clearfix">
-                            <div class="avatar pull-left"><a
+                <g:if test="${posts}">
+                    <g:each var="c" in="${posts.sort { -it.date.getTime() } }">
+                    <div class="message-item" id="m16">
+                        <div class="message-inner">
+                            <div class="message-head clearfix">
+                                <div class="avatar pull-left"><a
                                     href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
                                         src="/JackiesEtSosies/images/placeholder-membre.png"
                                         class="img-circle"></a></div>
 
                             <div class="user-detail">
-                                <h5 class="handle">Oleg Kolesnichenko</h5>
-
+                                <h5 class="handle">${c.membre.getNom()} ${c.membre.getPrenom()}</h5>
                                 <div class="post-meta">
                                     <div class="asker-meta">
                                         <span class="qa-message-what"></span>
                                         <span class="qa-message-when">
-                                            <span class="qa-message-when-data">Jan 21</span>
+                                            <span class="qa-message-when-data">${c.getDate().format( 'dd MMM yyyy hh:mm' )}</span>
                                         </span>
                                         <span class="qa-message-who">
                                             <span class="qa-message-who-pad">by</span>
                                             <span class="qa-message-who-data"><a
-                                                    href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko">Oleg Kolesnichenko</a>
+                                                    href="./membre/profil/">${c.membre.getNom()} ${c.membre.getPrenom()}</a>
                                             </span>
                                         </span>
                                     </div>
@@ -165,10 +148,12 @@
                         </div>
 
                         <div class="qa-message-content">
-                            Yo!
+                            ${c.getMessage()}
                         </div>
-                    </div></div>
-
+                    </div>
+                    </div>
+                    </g:each>
+                </g:if>
                 <div class="message-item" id="m9">
                     <div class="message-inner">
                         <div class="message-head clearfix">

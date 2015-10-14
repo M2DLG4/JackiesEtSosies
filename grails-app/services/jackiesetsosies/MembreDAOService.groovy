@@ -9,6 +9,10 @@ class MembreDAOService {
         return membre.save()
     }
 
+    Membre update(Membre membre) {
+        return membre.save()
+    }
+
     Membre searchMembre(String mail) {
         return Membre.findByMail(mail)
     }

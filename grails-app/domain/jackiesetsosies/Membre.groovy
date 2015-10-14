@@ -12,6 +12,7 @@ class Membre {
     boolean isSosie;
     Star idStar;
     String urlPhoto;
+    static hasMany = [posts:Post]
 
     static constraints = {
         nom blank: false
@@ -22,10 +23,12 @@ class Membre {
         sexe inList: ["F", "H"]
         idStar nullable: true
         urlPhoto nullable: true
+        posts nullable: true
     }
 
     static mapping = {
         isSosie defaultValue: false
+        id column: 'member_id'
     }
 
     @Override
