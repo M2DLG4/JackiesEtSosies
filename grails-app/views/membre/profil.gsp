@@ -29,7 +29,9 @@
         </g:link>
     </g:if>
     <g:else>
-        <a href="" class="btn btn-success pull-right">Suivre ce membre</a>
+        <g:link controller="membre" action="add" id="${membre.id}" class="btn btn-success pull-right">
+            Suivre ce membre
+        </g:link>
     </g:else>
 </body>
 </html>

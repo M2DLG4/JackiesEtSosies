@@ -3,6 +3,7 @@ package jackiesetsosies
 class MembreService {
 
     def membreDAOService
+    def suivreMembreDAOService
 
     Membre inscriptionMembre(Membre membre) {
         return membreDAOService.saveMembre(membre);
@@ -68,5 +69,9 @@ class MembreService {
 
     Boolean supprimerMembre(Membre membre) {
         return membreDAOService.supprimerMembre(membre);
+    }
+
+    SuivreMembre addSuivreMembre(int id0, int id1) {
+        return suivreMembreDAOService.saveSuivreMembre(new SuivreMembre(membre: getMembre(id0), membreSuivi: getMembre(id1)))
     }
 }

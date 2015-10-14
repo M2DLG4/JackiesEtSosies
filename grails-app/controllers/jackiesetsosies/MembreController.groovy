@@ -10,7 +10,8 @@ class MembreController {
     final String EDITION_OK = "La mise à jour du profil a été réalisé."
     final String EDITION_NOK = "Mise à jour du profil impossible."
     final String PROFIL_NOK = "<img src='http://www.oyez-perigord.fr/Oyez_Perigord/de_linsolite_au_rigolo/Entrees/2014/8/1_Johnny_Depp,_cest_lui_files/shapeimage_3.png' /><h3>Le membre n'existe pas</h3>"
-
+    final String SUIVRE_OK = "Vous suivez maintenant cet utilisateur."
+    final String SUIVRE_NOK = "Impossible de suivre l'utilisateur."
 
     def membreService
 
@@ -67,8 +68,8 @@ class MembreController {
     def profil() {
         Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
 
-        if(membre != null)
-            render(view: "profil", model: [membre:membre])
+        if (membre != null)
+            render(view: "profil", model: [membre: membre])
         else
             render(layout: "main", text: PROFIL_NOK)
     }
@@ -91,5 +92,21 @@ class MembreController {
         }
 
         redirect(action: "profil", id: session.getAttribute("user").getId())
+    }
+
+    def add() {
+        SuivreMembre sm = null
+
+        if ((int)(params.get("id")) != session.getAttribute("user").getId()) {
+            sm = membreService.addSuivreMembre((int) (session.getAttribute("user").id), Integer.parseInt(params.get("id")))
+        }
+
+        if (sm == null) {
+            flash.error = SUIVRE_NOK
+        } else {
+            flash.message = SUIVRE_OK
+        }
+
+        redirect(action: "profil", id: params.get("id"))
     }
 }
