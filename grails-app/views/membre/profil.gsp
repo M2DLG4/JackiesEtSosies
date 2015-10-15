@@ -10,19 +10,33 @@
 </head>
 
 <body>
-    <g:if test="${membre.urlPhoto.equals(null)}">
-        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
-    </g:if>
-    <g:else>
-        <p><img src="${membre.urlPhoto}" class="img-responsive"/></p>
-    </g:else>
-    <h2>${membre.prenom} ${membre.nom}</h2>
-    <g:if test="${membre.isSosie == true}">
-        <p>Sosie de ${membre.idStar}</p>
-    </g:if>
-    <p>Sexe : ${membre.sexe}</p>
-    <p>Ville : ${membre.ville}</p>
-    <p>Adresse mail : ${membre.mail}</p>
+    <div class="row" style="background-color: #f4f3f8 ">
+        <div class="col-md-3">
+            <h2>${membre.prenom} ${membre.nom}</h2>
+            <p>Sexe : ${membre.sexe}</p>
+            <p>Ville : ${membre.ville}</p>
+            <p>${membre.mail}</p>
+        </div>
+        <div class="col-md-3">
+            <br/>
+            <g:if test="${membre.urlPhoto.equals(null)}">
+                <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
+            </g:if>
+            <g:else>
+                <p><img src="${membre.urlPhoto}" style="max-height: 250px" class="img-responsive"/></p>
+            </g:else>
+        </div>
+        <g:if test="${membre.isSosie == true}">
+        <div class="col-md-3">
+            <br/>
+            <p><img src="${membre.idStar.urlPhoto}" style="max-height: 200px" class="img-responsive"/></p>
+        </div>
+        <div class="col-md-3">
+            <h3>Sosie de ${membre.idStar.prenom} ${membre.idStar.nom}</h3>
+        </div>
+        </g:if>
+    </div>
+    <br/><br/>
     <g:if test="${membre.id == session.getAttribute("user").id}">
         <g:link controller="membre" action="edit" class="btn btn-primary pull-right">
             Editer mon profil
