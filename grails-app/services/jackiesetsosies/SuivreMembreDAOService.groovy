@@ -8,4 +8,8 @@ class SuivreMembreDAOService {
     SuivreMembre saveSuivreMembre(SuivreMembre sm) {
         return sm.save()
     }
+
+    Boolean searchSuivreMembre(Membre membre, Membre membreSuivi) {
+        return SuivreMembre.find(new SuivreMembre(membre: membre, membreSuivi: membreSuivi))
+    }
 }

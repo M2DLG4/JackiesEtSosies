@@ -29,9 +29,16 @@
         </g:link>
     </g:if>
     <g:else>
-        <g:link controller="membre" action="add" id="${membre.id}" class="btn btn-success pull-right">
-            Suivre ce membre
-        </g:link>
+        <g:if test="${suivi == true}">
+            <g:link controller="membre" action="remove" id="${membre.id}" class="btn btn-danger pull-right">
+                Ne plus suivre
+            </g:link>
+        </g:if>
+        <g:else>
+            <g:link controller="membre" action="add" id="${membre.id}" class="btn btn-success pull-right">
+                Suivre ce membre
+            </g:link>
+        </g:else>
     </g:else>
 </body>
 </html>

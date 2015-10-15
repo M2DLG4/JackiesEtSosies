@@ -67,11 +67,15 @@ class MembreController {
 
     def profil() {
         Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
+        Boolean isFollowing = false
 
-        if (membre != null)
-            render(view: "profil", model: [membre: membre])
-        else
+        if (membre != null) {
+            isFollowing = membreService.isFollowingMembre(session.getAttribute("user").getId(), membre.id)
+            System.out.println("Relation de suivi : "+isFollowing)
+            render(view: "profil", model: [membre: membre, suivi: isFollowing])
+        } else {
             render(layout: "main", text: PROFIL_NOK)
+        }
     }
 
     def edit() {
@@ -97,8 +101,9 @@ class MembreController {
     def add() {
         SuivreMembre sm = null
 
-        if ((int)(params.get("id")) != session.getAttribute("user").getId()) {
-            sm = membreService.addSuivreMembre((int) (session.getAttribute("user").id), Integer.parseInt(params.get("id")))
+        System.out.println("Id cible = "+params.getLong("id")+" - Id session = "+session.getAttribute("user").getId())
+        if (params.getLong("id") != session.getAttribute("user").getId()) {
+            sm = membreService.addSuivreMembre(session.getAttribute("user").getId(), params.getLong("id"))
         }
 
         if (sm == null) {
