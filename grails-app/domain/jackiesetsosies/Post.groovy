@@ -23,12 +23,10 @@ class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "id=" + id +
-                ", date=" + date +
+                " date=" + date +
                 ", message='" + message + '\'' +
                 ", nbLikes=" + nbLikes +
                 ", membre=" + membre +
-                ", version=" + version +
                 '}';
     }
 }
