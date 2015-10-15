@@ -12,6 +12,8 @@ class MembreController {
     final String PROFIL_NOK = "<img src='http://www.oyez-perigord.fr/Oyez_Perigord/de_linsolite_au_rigolo/Entrees/2014/8/1_Johnny_Depp,_cest_lui_files/shapeimage_3.png' /><h3>Le membre n'existe pas</h3>"
     final String SUIVRE_OK = "Vous suivez maintenant cet utilisateur."
     final String SUIVRE_NOK = "Impossible de suivre l'utilisateur."
+    final String DECONNEXION_OK = "Vous avez été déconnecté avec succès."
+    final String SUPRESSION_OK = "Votre compte a été supprimé avec succès."
 
     def membreService
 
@@ -59,6 +61,7 @@ class MembreController {
         session.removeAttribute("user")
         session.removeAttribute("mail")
         redirect action: "index"
+        flash.message = DECONNEXION_OK
     }
 
     def actus() {
@@ -111,5 +114,13 @@ class MembreController {
         }
 
         redirect(action: "profil", id: params.get("id"))
+    }
+
+    def suppression() {
+        membreService.supprimerMembre(membreService.getMembre(session.getAttribute("user").id))
+        session.removeAttribute("user")
+        session.removeAttribute("mail")
+        redirect action: "index"
+        flash.message = SUPRESSION_OK
     }
 }

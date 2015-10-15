@@ -57,7 +57,7 @@ grails.project.dependency.resolution = {
         build 'org.apache.httpcomponents:httpclient:4.3.2'
         build 'org.apache.httpcomponents:httpmime:4.3.3'
     }
-
+    codenarc.propertiesFile = 'grails-app/conf/codenarc.properties'
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.54"

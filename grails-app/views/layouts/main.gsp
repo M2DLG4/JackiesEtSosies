@@ -39,9 +39,9 @@
             <ul class="nav navbar-nav navbar-right col-md-3">
                 <li>
 
-                    <form>
+                    <g:form class="form-edit" name="edition-form" url="[action:'index',controller:'recherche']">
                         <div class="input-group stylish-input-group">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" name="text"
                                    placeholder="Search">
                             <span class="input-group-addon">
                                 <button type="submit">
@@ -49,7 +49,7 @@
                                 </button>
                             </span>
                         </div>
-                    </form>
+                    </g:form>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -90,7 +90,7 @@
                     </div>
                     <div class="profile-usertitle-job">
                         <g:if test="${session.getAttribute("user").isSosie == true}">
-                            <p>Sosie de ${session.getAttribute("user").idStar}</p>
+                            <p>Sosie de ${session.getAttribute("user").idStar.prenom} ${session.getAttribute("user").idStar.nom}</p>
                         </g:if>
                     </div>
                 </div>
@@ -116,6 +116,7 @@
                                 Evenements</a>
                         </li>
                         <li>
+
                             <g:link controller="membre" action="deconnexion">
                                 <i class="fa fa-sign-out"></i>
                                 Déconnexion
@@ -126,6 +127,34 @@
                                 <i class="fa fa-credit-card"></i>
                                 Donation</a>
                         </li>
+                        <li>
+                            <a  href="#" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-ban"></i>
+                                Suppression</a>
+
+                        </li>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Suppression de votre compte</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Attention, si vous validez, votre compte sera supprimé définitivement.</br>
+                                            Si vous ne souhaitez pas supprimer votre compte, cliquer sur Annuler
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            <g:link controller="membre" action="suppression">
+                                                <button type="button" class="btn btn-primary">Valider</button>
+                                            </g:link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </ul>
                 </div>
                 <!-- END MENU -->
