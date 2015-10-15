@@ -28,4 +28,18 @@ class MembreDAOService {
     Membre searchMembre(long id) {
         return Membre.findById(id)
     }
+
+    ArrayList<Membre> searchMembreByTexte(String texte) {
+        def criteria = Membre.createCriteria()
+        def results = criteria.list {
+            or {
+                eq("mail", texte, [ignoreCase: true])
+                ilike("prenom", "%" + texte + "%")
+                ilike("nom", "%" + texte + "%")
+            }
+            maxResults(20)
+            order("id", "desc")
+        }
+        return results;
+    }
 }

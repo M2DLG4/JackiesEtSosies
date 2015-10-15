@@ -39,9 +39,9 @@
             <ul class="nav navbar-nav navbar-right col-md-3">
                 <li>
 
-                    <form>
+                    <g:form class="form-edit" name="edition-form" url="[action:'index',controller:'recherche']">
                         <div class="input-group stylish-input-group">
-                            <input type="text" class="form-control"
+                            <input type="text" class="form-control" name="text"
                                    placeholder="Search">
                             <span class="input-group-addon">
                                 <button type="submit">
@@ -49,7 +49,7 @@
                                 </button>
                             </span>
                         </div>
-                    </form>
+                    </g:form>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -90,7 +90,7 @@
                     </div>
                     <div class="profile-usertitle-job">
                         <g:if test="${session.getAttribute("user").isSosie == true}">
-                            <p>Sosie de ${session.getAttribute("user").idStar}</p>
+                            <p>Sosie de ${session.getAttribute("user").idStar.prenom} ${session.getAttribute("user").idStar.nom}</p>
                         </g:if>
                     </div>
                 </div>
