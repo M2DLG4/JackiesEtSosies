@@ -85,7 +85,24 @@ class MembreControllerSpec extends Specification {
         given: "Une connexion avec mail et mot de passe"
         params.id = "1"
         Membre m = Mock(Membre)
+        session.setAttribute("user", Mock(Membre));
         controller.membreService.getMembre(_) >> m
+        controller.membreService.isFollowingMembre(_,_) >> false
+
+        when: "on se connecte à la gestion de profil"
+        controller.profil()
+
+        then: "la vue est profil"
+        view.equals("/membre/profil")
+    }
+
+    void "test afficher la page de gestion de profil avec suivi"() {
+        given: "Une connexion avec mail et mot de passe"
+        params.id = "1"
+        Membre m = Mock(Membre)
+        session.setAttribute("user", Mock(Membre));
+        controller.membreService.getMembre(_) >> m
+        controller.membreService.isFollowingMembre(_,_) >> true
 
         when: "on se connecte à la gestion de profil"
         controller.profil()
@@ -168,5 +185,34 @@ class MembreControllerSpec extends Specification {
 
         then: "la vue est index"
         flash.error.equals(controller.EDITION_NOK)
+    }
+
+    void "test ajout d'ami sur meme profil"() {
+        given: "Un membre connecté"
+        Membre m = Mock(Membre)
+        m.getId() >> 1
+        session.setAttribute("user", m);
+        params.id = 1
+
+        when: "il essaye de de suivre lui-même"
+        controller.add()
+
+        then: "un message d'erreur est affiché"
+        flash.error.equals(controller.SUIVRE_NOK)
+    }
+
+    void "test ajout d'ami"() {
+        given: "Un membre connecté"
+        Membre m = Mock(Membre)
+        m.getId() >> 1
+        session.setAttribute("user", m);
+        params.id = 2
+        controller.membreService.addSuivreMembre(_,_) >> Mock(SuivreMembre)
+
+        when: "il essaye de suivre un autre membre"
+        controller.add()
+
+        then: "un message de confirmation est affiché"
+        flash.message.equals(controller.SUIVRE_OK)
     }
 }

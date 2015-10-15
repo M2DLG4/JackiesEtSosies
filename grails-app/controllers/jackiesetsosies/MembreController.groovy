@@ -71,7 +71,6 @@ class MembreController {
 
         if (membre != null) {
             isFollowing = membreService.isFollowingMembre(session.getAttribute("user").getId(), membre.id)
-            System.out.println("Relation de suivi : "+isFollowing)
             render(view: "profil", model: [membre: membre, suivi: isFollowing])
         } else {
             render(layout: "main", text: PROFIL_NOK)
@@ -101,7 +100,6 @@ class MembreController {
     def add() {
         SuivreMembre sm = null
 
-        System.out.println("Id cible = "+params.getLong("id")+" - Id session = "+session.getAttribute("user").getId())
         if (params.getLong("id") != session.getAttribute("user").getId()) {
             sm = membreService.addSuivreMembre(session.getAttribute("user").getId(), params.getLong("id"))
         }
