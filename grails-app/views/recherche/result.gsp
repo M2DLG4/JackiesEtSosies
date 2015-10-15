@@ -34,7 +34,7 @@
                 ${membre.nom}
             </p>
             <g:if test="${membre.isSosie}">
-                Sosie d'Albert DuponTel
+                Sosie de ${membre.idStar.prenom} ${membre.idStar.nom}
             </g:if>
             <br>
             <br>

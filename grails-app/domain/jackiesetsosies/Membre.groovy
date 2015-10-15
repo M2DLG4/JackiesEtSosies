@@ -26,6 +26,7 @@ class Membre {
 
     static mapping = {
         isSosie defaultValue: false
+        idStar lazy: false
     }
 
     @Override
