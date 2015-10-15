@@ -10,6 +10,6 @@ class SuivreMembreDAOService {
     }
 
     Boolean searchSuivreMembre(Membre membre, Membre membreSuivi) {
-        return SuivreMembre.find(new SuivreMembre(membre: membre, membreSuivi: membreSuivi))
+        return SuivreMembre.findByMembreAndMembreSuivi(membre, membreSuivi)
     }
 }
