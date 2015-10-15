@@ -23,13 +23,13 @@
                 <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
             </g:if>
             <g:else>
-                <p><img src="${membre.urlPhoto}" style="max-height: 250px" class="img-responsive"/></p>
+                <p><img src="${membre.urlPhoto}" class="img-responsive"/></p>
             </g:else>
         </div>
         <g:if test="${membre.isSosie == true}">
         <div class="col-md-3">
             <br/>
-            <p><img src="${membre.idStar.urlPhoto}" style="max-height: 200px" class="img-responsive"/></p>
+            <p><img src="${membre.idStar.urlPhoto}" class="img-responsive"/></p>
         </div>
         <div class="col-md-3">
             <h3>Sosie de ${membre.idStar.prenom} ${membre.idStar.nom}</h3>
