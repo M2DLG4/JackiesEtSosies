@@ -59,7 +59,7 @@
 
 <div class="container">
     <g:if test="${flash.error}">
-        <div class="alert alert-error alert-dismissible fade in" style="display: block" role="alert">
+        <div class="alert alert-danger alert-dismissible fade in" style="display: block" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
             ${flash.error}
         </div>

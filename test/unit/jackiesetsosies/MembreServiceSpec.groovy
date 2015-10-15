@@ -11,6 +11,7 @@ class MembreServiceSpec extends Specification {
 
     def setup() {
         service.membreDAOService = Mock(MembreDAOService)
+        service.suivreMembreDAOService = Mock(SuivreMembreDAOService)
     }
 
     @Override
@@ -108,6 +109,29 @@ class MembreServiceSpec extends Specification {
         Boolean res = service.supprimerMembre(membre);
 
         then: "La modification a été réalisée"
+        res == true
+    }
+
+    void "test création d'une nouvelle relation de suivi"() {
+        given: "Un membre connecté et un autre membre"
+        SuivreMembre sm = Mock(SuivreMembre)
+        service.suivreMembreDAOService.saveSuivreMembre(_) >> sm
+
+        when: "le membre désire suivre "
+        SuivreMembre res = service.addSuivreMembre(1, 2);
+
+        then: "La relation est ajoutée"
+        res == sm
+    }
+
+    void "test recherche d'une relation existante"() {
+        given: "Une relation de suivi existante"
+        service.suivreMembreDAOService.searchSuivreMembre(_,_) >> true
+
+        when: "On vérifie que la relation existe"
+        Boolean res = service.isFollowingMembre(1, 2);
+
+        then: "Son existence est confirmée"
         res == true
     }
 }
