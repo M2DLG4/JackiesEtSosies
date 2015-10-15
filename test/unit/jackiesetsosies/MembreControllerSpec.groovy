@@ -124,6 +124,7 @@ class MembreControllerSpec extends Specification {
         then: "l'utilisateur n'est plus connecté"
         controller.session.getAttribute("user") == null
         controller.session.getAttribute("mail") == null
+        flash.message.equals(controller.DECONNEXION_OK)
     }
 
     void "test consultation profil inexistant"() {
@@ -168,5 +169,23 @@ class MembreControllerSpec extends Specification {
 
         then: "la vue est index"
         flash.error.equals(controller.EDITION_NOK)
+    }
+
+    void "test suppression membre"() {
+        given: "un membre connecté"
+        Membre m = Mock(Membre)
+        session.setAttribute("user", m);
+        m.getId() >> 1
+        controller.membreService.getMembre(1) >> m
+        controller.membreService.supprimerMembre(m) >> m
+
+        when: "on supprime son compte"
+        controller.suppression()
+
+        then: "le profil de l'utilisateur est supprimé et il n'est plus connecté"
+        /*controller.session.getAttribute("user") == null
+        controller.session.getAttribute("mail") == null*/
+        flash.message.equals(controller.SUPRESSION_OK)
+
     }
 }
