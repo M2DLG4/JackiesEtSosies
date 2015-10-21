@@ -74,6 +74,10 @@ class MembreService {
         return suivreMembreDAOService.saveSuivreMembre(new SuivreMembre(membre: getMembre(id0), membreSuivi: getMembre(id1)))
     }
 
+    SuivreMembre removeSuivreMembre(Long id0, Long id1) {
+        return suivreMembreDAOService.supprimerSuivreMembre(suivreMembreDAOService.getSuivreMembre(getMembre(id0), getMembre(id1)))
+    }
+
     Boolean isFollowingMembre(Long id0, Long id1) {
         return suivreMembreDAOService.searchSuivreMembre(getMembre(id0), getMembre(id1))
     }
