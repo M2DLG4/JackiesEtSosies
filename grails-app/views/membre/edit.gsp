@@ -30,13 +30,40 @@
                             <input class="form-control" value="${session.getAttribute("user").mail}" name="mail" type="email">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="isSosie" value=true
+                                    <input type="checkbox" id="isSosie" onclick="afficher();" name="isSosie" value=true
                                            <g:if test="${session.getAttribute("user").isSosie}">
                                                checked
                                            </g:if>
                                     > Êtes-vous le sosie de quelqu'un d'autre ?
                                 </label>
                             </div>
+                            <p id="champ_cache">
+                                Star dont vous êtes sosie :<br/>
+                                <select class="form-control" name="star">
+                                    <option value="">Veuillez sélectionner une star</option>
+                                    <g:each var="star" in="${listStar}">
+                                        <option value=${star.id}>${star.nom} ${star.prenom}</option>
+                                    </g:each>
+                                </select>
+                            </p>
+
+                            <g:javascript>
+                                document.getElementById("champ_cache").style.display = "none";
+
+                                function afficher()
+                                {
+                                    var coche = document.getElementById("isSosie")
+
+                                    if(coche.checked)
+                                    {
+                                        document.getElementById("champ_cache").style.display = "block";
+                                    }
+                                    else
+                                    {
+                                        document.getElementById("champ_cache").style.display = "none";
+                                    }
+                                }
+                            </g:javascript>
                             <input class="form-control" placeholder="Rentrez l'URL de votre nouvelle image"
                                     <g:if test="${session.getAttribute("user").urlPhoto && session.getAttribute("user").urlPhoto.size() > 0}">
                                         value="${session.getAttribute("user").urlPhoto}"

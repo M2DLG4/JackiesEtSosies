@@ -132,14 +132,42 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="isSosie" value="true"> Êtes-vous le sosie de quelqu'un d'autre ?
+                                    <input type="checkbox" id="isSosie" onclick="afficher();" name="isSosie" value="true"> Êtes-vous le sosie de quelqu'un d'autre ?
                                 </label>
                             </div>
+                            <p id="champ_cache">
+                                Star dont vous êtes sosie :
+                                <select class="form-control" name="star">
+                                    <option value="">Veuillez sélectionner une star</option>
+                                    <g:each var="star" in="${listStar}">
+                                        <option value=${star.id}>${star.nom} ${star.prenom}</option>
+                                    </g:each>
+                                </select>
+                            </p>
+                            <g:javascript>
+                                document.getElementById("champ_cache").style.display = "none";
+
+                                function afficher()
+                                {
+                                    var coche = document.getElementById("isSosie")
+
+                                    if(coche.checked)
+                                    {
+                                        document.getElementById("champ_cache").style.display = "block";
+                                    }
+                                    else
+                                    {
+                                        document.getElementById("champ_cache").style.display = "none";
+                                    }
+                                }
+                            </g:javascript>
+
+
                             <input class="form-control" placeholder="Email"
                                    name="mail" type="email">
                             <input class="form-control" placeholder="●●●●●●●●"
                                    name="mdp" type="password">
-                            <g:actionSubmit class="btn btn-lg btn-success btn-block" action="inscription" type="submit" id="login" value="S'inscrire" />
+                            <g:actionSubmit class="btn btn-lg btn-success btn-block" action="inscription" type="submit" id="signin" value="S'inscrire" />
                         </fieldset>
                     </g:form>
                 </div>

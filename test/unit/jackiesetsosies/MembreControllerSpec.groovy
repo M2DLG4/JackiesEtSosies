@@ -7,6 +7,7 @@ import spock.lang.Specification
 class MembreControllerSpec extends Specification {
     void setup() {
         controller.membreService = Mock(MembreService)
+        controller.starService = Mock(StarService)
     }
 
     void "test une inscription valide"() {
@@ -22,7 +23,21 @@ class MembreControllerSpec extends Specification {
         flash.message.equals(controller.INSCRIPTION_OK)
     }
 
-    void "test une inscription valide avec un parametre"() {
+    void "test une inscription valide avec un parametre non sosie"() {
+        given: "Une demande d'inscription avec toutes les informations"
+        Membre m = Mock(Membre);
+        m.hasErrors () >> false
+        controller.membreService.inscriptionMembre(_) >> m
+
+        when: "on inscrit le membre"
+        params.isSosie = "false";
+        controller.inscription()
+
+        then: "L'inscription est validée"
+        flash.message.equals(controller.INSCRIPTION_OK)
+    }
+
+    void "test une inscription valide avec un parametre sosie"() {
         given: "Une demande d'inscription avec toutes les informations"
         Membre m = Mock(Membre);
         m.hasErrors () >> false
@@ -30,6 +45,7 @@ class MembreControllerSpec extends Specification {
 
         when: "on inscrit le membre"
         params.isSosie = "true";
+        params.star = "1"
         controller.inscription()
 
         then: "L'inscription est validée"
@@ -49,10 +65,11 @@ class MembreControllerSpec extends Specification {
         flash.error.equals(controller.INSCRIPTION_NOK)
     }
 
-    void "test une connexion valide d'un membre"() {
+    void "test une connexion valide d'un membre non sosie"() {
         given: "Une connexion avec mail et mot de passe"
         Membre m = Mock(Membre)
         m.getId() >> 1
+        m.getIsSosie() >> false
         controller.membreService.connexionMembre(_,_) >> m
 
         when: "on connecte le membre"
@@ -67,6 +84,18 @@ class MembreControllerSpec extends Specification {
         controller.membreService.connexionMembre(_,_) >> null
 
         when: "on connecte le membre"
+        controller.connexion()
+
+        then: "La connexion est invalidée"
+        flash.error.equals(controller.CONNEXION_NOK)
+    }
+
+    void "test une connexion non valide d'un membre sosie"() {
+        given: "Une connexion avec mail et mot de passe"
+        controller.membreService.connexionMembre(_,_) >> null
+
+        when: "on connecte le membre"
+        params.star = ""
         controller.connexion()
 
         then: "La connexion est invalidée"

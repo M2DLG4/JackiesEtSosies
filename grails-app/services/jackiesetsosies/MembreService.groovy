@@ -4,6 +4,7 @@ class MembreService {
 
     def membreDAOService
     def suivreMembreDAOService
+    def starDAOService
 
     Membre inscriptionMembre(Membre membre) {
         return membreDAOService.saveMembre(membre);
@@ -44,6 +45,20 @@ class MembreService {
                     break;
                 case "isSosie":
                     membre.setIsSosie(val);
+                    break;
+                case "star":
+                    if(membre.isSosie) {
+                        if (val.toString().isEmpty()) {
+                            membre.setIsSosie(false);
+                            return false;
+                        }
+                        else {
+                            membre.setIdStar(starDAOService.searchStar(Long.parseLong(val)));
+                        }
+                    }
+                    else {
+                        membre.setIdStar(null);
+                    }
                     break;
                 case "urlPhoto":
                     if (! val.isEmpty()) {

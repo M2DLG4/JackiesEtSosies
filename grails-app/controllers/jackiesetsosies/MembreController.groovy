@@ -16,21 +16,39 @@ class MembreController {
     final String SUPRESSION_OK = "Votre compte a été supprimé avec succès."
 
     def membreService
+    def starService
 
     @Override
     def index() {
-        render view: "index"
+        def listStar = starService.getStars();
+        render(view: "index", model: [listStar:listStar])
     }
 
     def inscription() {
+        Membre membre;
         if (params.isSosie)
             params.isSosie = params.boolean("isSosie")
         else
             params.isSosie = false;
-        Membre membre = new Membre(nom: params.nom, prenom: params.prenom, ville: params.ville,
-                sexe: params.sexe, isSosie: params.isSosie, mail: params.mail, mdp: params.mdp);
+        if(params.isSosie) {
+            if (!params.star.toString().isEmpty()) {
+                Star idStar = starService.getStar(Integer.parseInt(params.star));
+                membre = new Membre(nom: params.nom, prenom: params.prenom, ville: params.ville,
+                        sexe: params.sexe, isSosie: params.isSosie, idStar: idStar, mail: params.mail, mdp: params.mdp);
+            }
+            else {
+                membre = null;
+            }
+        }
+        else {
+            membre = new Membre(nom: params.nom, prenom: params.prenom, ville: params.ville,
+                    sexe: params.sexe, isSosie: params.isSosie, idStar: null, mail: params.mail, mdp: params.mdp);
+        }
 
-        Membre membreinscrit = membreService.inscriptionMembre(membre)
+
+        Membre membreinscrit = null;
+        if (membre != null)
+            membreinscrit = membreService.inscriptionMembre(membre)
 
         if (membreinscrit != null && !membreinscrit.hasErrors()) {
             flash.message = INSCRIPTION_OK
@@ -81,7 +99,8 @@ class MembreController {
     }
 
     def edit() {
-        render(view: "edit")
+        def listStar = starService.getStars();
+        render(view: "edit", model: [listStar:listStar])
     }
 
     def edition() {

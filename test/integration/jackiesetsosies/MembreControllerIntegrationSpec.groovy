@@ -7,7 +7,7 @@ import spock.lang.*
 /**
  *
  */
-class MembreControllerSpec extends Specification {
+class MembreControllerIntegrationSpec extends Specification {
 
     def setup() {
 
