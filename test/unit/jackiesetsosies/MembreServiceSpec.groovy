@@ -63,4 +63,22 @@ class MembreServiceSpec extends Specification {
         then: "La connexion est impossible"
         res == null
     }
+
+    void "test ajouter un post"() {
+        given: "Un utilisateur désirant ajouter un post"
+        Membre m = Mock(Membre);
+        m.hasErrors() >> false
+        service.membreDAOService.searchMembre(_) >> m
+        service.membreDAOService.addPost(_, _, _) >> m
+
+        and: "Un post"
+        Post p = Mock(Post)
+
+        when: "on effectue la requete de connexion"
+        Membre res = service.addPostToMembre(m, p);
+
+        then: "Le post est ajouté"
+        res == m
+    }
+
 }

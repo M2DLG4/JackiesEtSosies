@@ -48,6 +48,6 @@ class MembreController {
     }
 
     def actus() {
-        render(view: "actus")
+        redirect action: "news", controller: "wall"
     }
 }

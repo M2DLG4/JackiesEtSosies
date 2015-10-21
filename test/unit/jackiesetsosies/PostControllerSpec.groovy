@@ -31,10 +31,10 @@ class PostControllerSpec extends Specification {
         session.getAttribute("user") >> membre
         Post post = Mock(Post)
         post.hasErrors() >> false
-        new Post() >> post
+        post.validate() >> true
         membre.getPosts() >> post
 
-                when: "on execute sharedPost"
+        when: "on execute sharedPost"
         controller.sharedPost()
 
         then: "on est redirigé vers la vue"
@@ -44,12 +44,14 @@ class PostControllerSpec extends Specification {
     void "test sharedPost avec un post pas valide"() {
         given: "un message vide"
         params.message >> ""
+
+        and: "un membre connecté"
         Membre membre = Mock(Membre)
         session.getAttribute("user") >> membre
         Post post = Mock(Post)
-        post.hasErrors() >> true
-        new Post() >> post
-        membre.getPosts() >> null
+        post.hasErrors() >> false
+        post.validate() >> true
+        membre.getPosts() >> []
 
         when: "on execute sharedPost"
         controller.sharedPost()

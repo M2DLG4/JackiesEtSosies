@@ -23,12 +23,12 @@ class Membre {
         sexe inList: ["F", "H"]
         idStar nullable: true
         urlPhoto nullable: true
-        posts nullable: true
     }
 
     static mapping = {
         isSosie defaultValue: false
         id column: 'member_id'
+        posts fetch: 'join', cascade: 'all'
     }
 
     @Override

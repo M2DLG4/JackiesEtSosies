@@ -8,9 +8,10 @@ class MembreService {
         return membreDAOService.addMembre(membre);
     }
 
-    Membre addPostToMembre(Membre membre, Post newPost) {
-        membre.addToPosts(newPost)
-        return membreDAOService.update(membre);
+    Membre addPostToMembre(Membre membreSession, Post newPost) {
+        Membre membre = membreDAOService.searchMembre(membreSession.id)
+
+        return membreDAOService.addPost(membreSession, membre, newPost);
     }
 
     Membre connexionMembre(String mail, String mdp) {
