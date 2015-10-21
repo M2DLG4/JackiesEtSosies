@@ -2,7 +2,16 @@ package jackiesetsosies
 
 class WallController {
 
+    def posts
+
     def news() {
-        render(view: "news")
+        getPosts()
+        render(view: "news", model: [posts: posts])
     }
+
+    def getPosts() {
+        Membre user = session.getAttribute("user")
+        posts = user?.getPosts()
+    }
+
 }
