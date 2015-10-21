@@ -69,4 +69,39 @@ class MembreControllerSpec extends Specification {
         then:
         membreController.flash.message == membreController.SUPRESSION_OK
     }
+
+
+    void "test add d'un membre vers un autre"() {
+        given:"une liste de parametre"
+        def membreController = new MembreController();
+        RequestContextHolder.currentRequestAttributes().session.setAttribute("user", Membre.findByMail("pat.perdu@wanadoo.net"));
+        membreController.request.parameters = [id: Membre.findByMail("dark@vador.fr").id + ""];
+
+        when: "on ajouter le lien d'amitié"
+        membreController.add()
+
+        then:
+        membreController.flash.message == membreController.SUIVRE_OK
+    }
+
+
+
+
+    void "test echec supprimer lien amitie d'un membre vers un autre"() {
+        given:"une liste de parametre"
+        def membreController = new MembreController();
+        Membre m1 = Membre.findByMail("pat.perdu@wanadoo.net");
+        Membre m2 = Membre.findByMail("dark@vador.fr");
+        new SuivreMembre(membre: m1, membreSuivi: m2).save();
+        RequestContextHolder.currentRequestAttributes().session.setAttribute("user", m1);
+        membreController.request.parameters = [id: m2.id + ""];
+
+        when: "on supprime le lien d'amitié"
+        membreController.remove()
+
+        then:
+        membreController.flash.message == membreController.REMOVE_OK
+    }
+
+
 }
