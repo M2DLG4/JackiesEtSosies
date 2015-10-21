@@ -13,18 +13,6 @@ class MembreDAOService {
         return Membre.findByMail(mail)
     }
 
-    Membre getMembre (int id) {
-        return Membre.get(id);
-    }
-
-    Boolean supprimerMembre(Membre membre) {
-        return membre.delete();
-    }
-
-    Membre searchMembre(int id) {
-        return Membre.findById(id)
-    }
-
     Membre searchMembre(long id) {
         return Membre.findById(id)
     }
@@ -41,5 +29,9 @@ class MembreDAOService {
             order("id", "desc")
         }
         return results;
+    }
+
+    Boolean supprimerMembre(Membre membre) {
+        return membre.delete();
     }
 }

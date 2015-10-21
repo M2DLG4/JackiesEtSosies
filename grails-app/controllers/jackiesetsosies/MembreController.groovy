@@ -69,9 +69,8 @@ class MembreController {
     }
 
     def profil() {
-        Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
         Boolean isFollowing = false
-
+        Membre membre = membreService.getMembre(params.getLong("id"))
         if (membre != null) {
             isFollowing = membreService.isFollowingMembre(session.getAttribute("user").getId(), membre.id)
             render(view: "profil", model: [membre: membre, suivi: isFollowing])
