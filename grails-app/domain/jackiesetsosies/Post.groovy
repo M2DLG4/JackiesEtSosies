@@ -9,7 +9,7 @@ class Post {
     Date date;
     String message;
     int nbLikes;
-    static belongsTo = [membre: Membre]
+    long idMembre
 
     static constraints = {
         date blank: false
@@ -26,7 +26,7 @@ class Post {
                 " date=" + date +
                 ", message='" + message + '\'' +
                 ", nbLikes=" + nbLikes +
-                ", membre=" + membre +
+                ", membre=" + idMembre +
                 '}';
     }
 }

@@ -5,24 +5,20 @@ package jackiesetsosies
  */
 class PostController {
 
-    def membreService
+    def postService
 
-    def post() {
-        render view: "post"
-    }
 
     def sharedPost() {
         def message = params.message
-        def datePost = new Date()
         Membre user = session.getAttribute("user")
-
-        def newPost = new Post(date: datePost, message: message, membre: user)
-
-        user = membreService.addPostToMembre(user, newPost)
-
+        user = postService.addPostToMembre(user, message)
+        if (user) {
+            flash.message = "OK"
+        } else {
+            flash.message = "NOK"
+        }
         session.setAttribute("user", user)
 
-        params.message = ""
         redirect(action: "news", controller:"wall")
     }
 }

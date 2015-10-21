@@ -30,6 +30,7 @@ class Membre {
         idStar lazy: false
         id column: 'member_id'
         posts fetch: 'join', cascade: 'all'
+        idStar lazy: false
     }
 
     @Override

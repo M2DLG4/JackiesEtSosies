@@ -9,12 +9,6 @@ class MembreService {
         return membreDAOService.saveMembre(membre);
     }
 
-    Membre addPostToMembre(Membre membreSession, Post newPost) {
-        Membre membre = membreDAOService.searchMembre(membreSession.id)
-
-        return membreDAOService.addPost(membreSession, membre, newPost);
-    }
-
     Membre connexionMembre(String mail, String mdp) {
         Membre m = membreDAOService.searchMembre(mail)
 
@@ -67,6 +61,7 @@ class MembreService {
         Membre m = membreDAOService.searchMembre(id)
         return m
     }
+
     Membre getMembre(long id) {
         Membre m = membreDAOService.searchMembre(id)
         return m
