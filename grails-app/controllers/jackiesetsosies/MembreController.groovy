@@ -12,6 +12,8 @@ class MembreController {
     final String PROFIL_NOK = "<img src='http://www.oyez-perigord.fr/Oyez_Perigord/de_linsolite_au_rigolo/Entrees/2014/8/1_Johnny_Depp,_cest_lui_files/shapeimage_3.png' /><h3>Le membre n'existe pas</h3>"
     final String SUIVRE_OK = "Vous suivez maintenant cet utilisateur."
     final String SUIVRE_NOK = "Impossible de suivre l'utilisateur."
+    final String REMOVE_OK = "Vous ne suivez plus cet utilisateur."
+    final String REMOVE_NOK = "Impossible de ne plus suivre cet utilisateur."
     final String DECONNEXION_OK = "Vous avez été déconnecté avec succès."
     final String SUPRESSION_OK = "Votre compte a été supprimé avec succès."
 
@@ -91,7 +93,7 @@ class MembreController {
             params.isSosie = false
 
         if (membreService.editionMembre(session.getAttribute("user"), params)) {
-            session.setAttribute("user", membreService.getMembre(session.getAttribute("user").id));
+            session.setAttribute("user", membreService.getMembre(session.getAttribute("user").id))
             flash.message = EDITION_OK
         } else {
             flash.error = EDITION_NOK
@@ -114,6 +116,18 @@ class MembreController {
         }
 
         redirect(action: "profil", id: params.get("id"))
+    }
+
+    def remove() {
+        Long idMembre = params.getLong("id")
+        Boolean isFollowing = false
+        if (idMembre != null && membreService.isFollowingMembre(session.getAttribute("user").getId(), idMembre)) {
+            membreService.removeSuivreMembre(session.getAttribute("user").getId(), idMembre)
+            flash.message = REMOVE_OK
+        } else {
+            flash.error = REMOVE_NOK
+        }
+        redirect(action: "profil", id: idMembre)
     }
 
     def suppression() {
