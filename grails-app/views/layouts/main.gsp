@@ -98,13 +98,14 @@
                 <!-- SIDEBAR MENU -->
                 <div class="profile-usermenu">
                     <ul class="nav">
-                        <li class="active">
+                        <g:set var="pageId" value="${params.controller}-${params.action}"/>
+                        <li <g:if test="${pageId == 'membre-profil'}"> class="active"</g:if>>
                             <g:link controller="membre" action="profil" id="${session.getAttribute("user").id}">
                                 <i class="fa fa-user"></i>
                                 Profil
                             </g:link>
                         </li>
-                        <li>
+                        <li <g:if test="${pageId == 'wall-news'}"> class="active"</g:if>>
                             <g:link controller="wall" action="news">
                                 <i class="fa fa-newspaper-o"></i>
                                 Actus

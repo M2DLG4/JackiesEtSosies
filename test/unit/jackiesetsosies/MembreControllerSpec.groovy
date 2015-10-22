@@ -7,6 +7,7 @@ import spock.lang.Specification
 class MembreControllerSpec extends Specification {
     void setup() {
         controller.membreService = Mock(MembreService)
+        controller.postService = Mock(PostService)
     }
 
     void "test une inscription valide"() {
@@ -88,6 +89,7 @@ class MembreControllerSpec extends Specification {
         session.setAttribute("user", Mock(Membre));
         controller.membreService.getMembre(_) >> m
         controller.membreService.isFollowingMembre(_,_) >> false
+        controller.postService.getPosts() >> Mock(Post)
 
         when: "on se connecte à la gestion de profil"
         controller.profil()
@@ -103,6 +105,7 @@ class MembreControllerSpec extends Specification {
         session.setAttribute("user", Mock(Membre));
         controller.membreService.getMembre(_) >> m
         controller.membreService.isFollowingMembre(_,_) >> true
+        controller.postService.getPosts() >> Mock(Post)
 
         when: "on se connecte à la gestion de profil"
         controller.profil()

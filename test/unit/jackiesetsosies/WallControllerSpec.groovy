@@ -9,9 +9,13 @@ import spock.lang.Specification
 
 @TestFor(WallController)
 class WallControllerSpec extends Specification {
+    void setup() {
+        controller.postService = Mock(PostService)
+    }
 
     void "test redirection news"() {
         given: "un utilisateur connecté"
+        controller.postService.getPosts() >> null
         Membre membre = Mock(Membre)
         session.getAttribute("user") >> membre
 
