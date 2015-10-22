@@ -120,9 +120,10 @@ class MembreController {
 
     def remove() {
         Long idMembre = params.getLong("id")
+        Long idSession = session.getAttribute("user").getId()
         Boolean isFollowing = false
-        if (idMembre != null && membreService.isFollowingMembre(session.getAttribute("user").getId(), idMembre)) {
-            membreService.removeSuivreMembre(session.getAttribute("user").getId(), idMembre)
+        if (idMembre != null && membreService.isFollowingMembre(idSession, idMembre)) {
+            membreService.removeSuivreMembre(idSession, idMembre)
             flash.message = REMOVE_OK
         } else {
             flash.error = REMOVE_NOK
