@@ -10,11 +10,19 @@ import spock.lang.Specification
 class StarServiceSpec extends Specification {
 
     def setup() {
+        service.starDAOService = Mock(StarDAOService)
     }
 
-    def cleanup() {
-    }
+    void "test recuperer des stars inexistantes"() {
+        given: "Une star"
+        List<Star> maList = service.getStars();
 
-    void "test something"() {
+        when: "on effectue la recherche de"
+        Star res = service.getStar(1);
+        Star res2 = service.getStar((Long) 1);
+
+        then: "ces star n'existent pas"
+        res == null
+        res2 == null
     }
 }

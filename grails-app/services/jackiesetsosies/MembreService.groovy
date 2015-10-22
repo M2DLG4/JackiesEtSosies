@@ -25,6 +25,7 @@ class MembreService {
 
         for (String key : params.keySet()) {
             def val = params.get(key)
+            boolean sosieChanged;
             switch (key) {
                 case "nom":
                     membre.setNom(val);
@@ -46,26 +47,29 @@ class MembreService {
                 case "isSosie":
                     membre.setIsSosie(val);
                     break;
-                case "star":
-                    if(membre.isSosie) {
-                        if (val.toString().isEmpty()) {
-                            membre.setIsSosie(false);
-                            return false;
-                        }
-                        else {
-                            membre.setIdStar(starDAOService.searchStar(Long.parseLong(val)));
-                        }
-                    }
-                    else {
-                        membre.setIdStar(null);
-                    }
-                    break;
                 case "urlPhoto":
                     if (! val.isEmpty()) {
                         membre.setUrlPhoto(val);
                     }
                     break;
             }
+        }
+        System.out.println("TEST -------------------------->  "+params.get("isSosie"));
+        if(params.get("isSosie")) {
+            String id = params.get("star");
+            if (id.equals("")) {
+                System.out.println("ICI--------------------------");
+                membre.setIsSosie(false);
+                return false;
+            }
+            else {
+                System.out.println("LABAS--------------------------");
+                membre.setIdStar(starDAOService.searchStar(Long.parseLong(id)));
+            }
+        }
+        else {
+            System.out.println("LA--------------------------");
+            membre.setIdStar(null);
         }
         membre = membreDAOService.saveMembre(membre);
 

@@ -11,6 +11,7 @@ class MembreServiceSpec extends Specification {
 
     def setup() {
         service.membreDAOService = Mock(MembreDAOService)
+        service.starDAOService = Mock(StarDAOService)
         service.suivreMembreDAOService = Mock(SuivreMembreDAOService)
     }
 
@@ -79,7 +80,6 @@ class MembreServiceSpec extends Specification {
     }
 
 
-
     void "test la modification d'un utilisateur"() {
         given: "Un utilisateur désirant modifier son profil"
         Membre m = Mock(Membre);
@@ -87,7 +87,7 @@ class MembreServiceSpec extends Specification {
         service.membreDAOService.saveMembre(_) >> m
         service.membreDAOService.searchMembre(_) >> m
         def params = new HashMap(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
-                ville:ville, isSosie: isSosie, idStar: Mock(Star), urlPhoto: urlPhoto);
+                ville: ville, isSosie: isSosie, star: idStar, urlPhoto: urlPhoto);
 
         when: "on effectue la requete de modification"
         Boolean res = service.editionMembre(m, params);
@@ -96,8 +96,28 @@ class MembreServiceSpec extends Specification {
         res == true
 
         where: "avec le jeu de donnees suivant"
-        nom     | prenom      | mail                         | mdp            | sexe | ville      | isSosie | urlPhoto
-        "Jacky" | "Pierre"    | "pierre.jacky@gmail.com"     | "JohnnyLeBest" | "H"  | "Toulouse" | true    | "machin.png"
+        nom     | prenom   | mail                     | mdp            | sexe | ville      | isSosie | idStar | urlPhoto
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | true    | "1"    | "machin.png"
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H"  | "Toulouse" | false   | _      | "machin.png"
+    }
+
+    void "test la modification d'un utilisateur invalide"() {
+        given: "Un utilisateur désirant modifier son profil"
+        Membre m = Mock(Membre);
+        m.hasErrors() >> false
+        service.membreDAOService.saveMembre(_) >> m
+        service.membreDAOService.searchMembre(_) >> m
+        def params = new HashMap(nom: nom, prenom: prenom, mail: mail, mdp: mdp, sexe: sexe,
+                ville: ville, isSosie: isSosie, star: idStar, urlPhoto: urlPhoto);
+        when: "on effectue la requete de modification"
+        Boolean res = service.editionMembre(m, params);
+
+        then: "La modification n'a pas été réalisée"
+        res == false
+
+        where: "avec le jeu de donnees suivant"
+        nom | prenom | mail | mdp | sexe | ville | isSosie | idStar | urlPhoto
+        "Jacky" | "Pierre" | "pierre.jacky@gmail.com" | "JohnnyLeBest" | "H" | "Toulouse" | true | "" | "machin.png"
     }
 
     void "test suppression d'un utilisateur"() {

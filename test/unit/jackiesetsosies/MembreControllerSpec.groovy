@@ -23,7 +23,7 @@ class MembreControllerSpec extends Specification {
         flash.message.equals(controller.INSCRIPTION_OK)
     }
 
-    void "test une inscription valide avec un parametre non sosie"() {
+    void "test une inscription valide avec un parametre et membre non sosie"() {
         given: "Une demande d'inscription avec toutes les informations"
         Membre m = Mock(Membre);
         m.hasErrors () >> false
@@ -37,7 +37,7 @@ class MembreControllerSpec extends Specification {
         flash.message.equals(controller.INSCRIPTION_OK)
     }
 
-    void "test une inscription valide avec un parametre sosie"() {
+    void "test une inscription valide avec un parametre et membre sosie"() {
         given: "Une demande d'inscription avec toutes les informations"
         Membre m = Mock(Membre);
         m.hasErrors () >> false
@@ -50,6 +50,22 @@ class MembreControllerSpec extends Specification {
 
         then: "L'inscription est validée"
         flash.message.equals(controller.INSCRIPTION_OK)
+    }
+
+
+    void "test une inscription invalide avec membre sosie et Star chaine vide"() {
+        given: "Une demande d'inscription avec toutes les informations"
+        Membre m = Mock(Membre);
+        m.hasErrors () >> false
+        controller.membreService.inscriptionMembre(_) >> m
+
+        when: "on inscrit le membre"
+        params.isSosie = "true";
+        params.star = ""
+        controller.inscription()
+
+        then: "L'inscription est non valide"
+        flash.error.equals(controller.INSCRIPTION_NOK)
     }
 
     void "test une inscription invalide"() {

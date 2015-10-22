@@ -55,8 +55,8 @@ class MembreController {
         } else {
             flash.error = INSCRIPTION_NOK
         }
-
-        render(view: "index")
+        def listStar = starService.getStars();
+        render(view: "index", model: [listStar:listStar])
     }
 
     def connexion() {

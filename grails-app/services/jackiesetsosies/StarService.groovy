@@ -15,6 +15,6 @@ class StarService {
     }
 
     List<Star> getStars() {
-        return starDAOService.retrieveStars();
+        return starDAOService.getStars();
     }
 }

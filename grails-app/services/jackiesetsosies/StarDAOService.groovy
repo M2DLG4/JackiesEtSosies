@@ -2,7 +2,7 @@ package jackiesetsosies
 
 class StarDAOService {
 
-    ArrayList<Star> retrieveStars() {
+    ArrayList<Star> getStars() {
         def criteria = Star.createCriteria()
         def results = criteria.list {
             order("nom", "asc")
