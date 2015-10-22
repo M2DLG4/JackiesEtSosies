@@ -28,7 +28,7 @@ class PostControllerSpec extends Specification {
 
         then: "on est redirigé vers la vue"
         flash.message == controller.AJOUTPOST_OK
-        response.redirectedUrl == "/wall/news"
+        response.redirectedUrl == "/post/news"
     }
 
     void "test sharedPost avec un post pas valide"() {
@@ -43,7 +43,7 @@ class PostControllerSpec extends Specification {
 
         then: "on est redirigé vers la vue"
         flash.error == controller.AJOUTPOST_NOK
-        response.redirectedUrl == "/wall/news"
+        response.redirectedUrl == "/post/news"
     }
 
     void "test supprimer un post"() {
@@ -60,5 +60,18 @@ class PostControllerSpec extends Specification {
 
         then: "on est redirigé vers la vue"
         flash.message == controller.SUPPRESSIONPOST_OK
+    }
+
+    void "test redirection news"() {
+        given: "un utilisateur connecté"
+        controller.postService.getPosts() >> null
+        Membre membre = Mock(Membre)
+        session.getAttribute("user") >> membre
+
+        when: "on execute news"
+        controller.news()
+
+        then: "la vue est news"
+        view.equals("/post/news")
     }
 }

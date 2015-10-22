@@ -68,7 +68,7 @@ class MembreController {
     }
 
     def actus() {
-        redirect action: "news", controller: "wall"
+        redirect action: "news", controller: "post"
     }
 
     def profil() {

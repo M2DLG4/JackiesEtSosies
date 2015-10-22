@@ -24,17 +24,23 @@ class PostController {
             flash.error = AJOUTPOST_NOK
         }
 
-        redirect(action: "news", controller:"wall")
+        redirect(action: "news", controller:"post")
     }
 
     def supprimer() {
         Membre user = session.getAttribute("user")
-        def res = postService.supprimer(user, params.idMessage)
+        def res = postService.supprimer(user, params.getLong("idMessage"))
         if (res) {
             flash.message = SUPPRESSIONPOST_OK
         } else {
             flash.error = SUPPRESSIONPOST_NOK
         }
-        redirect(action: "news", controller:"wall")
+        redirect(action: "news", controller:"post")
+    }
+
+    def news() {
+        Membre user = session.getAttribute("user");
+        def posts = postService.getPosts(user);
+        render(view: "news", model: [posts: posts])
     }
 }

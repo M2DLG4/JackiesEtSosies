@@ -79,7 +79,7 @@ class MembreControllerSpec extends Specification {
         controller.actus()
 
         then: "la vue est actus"
-        response.redirectedUrl == '/wall/news'
+        response.redirectedUrl == '/post/news'
     }
 
     void "test afficher la page de gestion de profil"() {

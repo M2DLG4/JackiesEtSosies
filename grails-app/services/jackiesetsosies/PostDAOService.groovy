@@ -15,7 +15,7 @@ class PostDAOService {
 
     Boolean supprimer(Membre user, Long idMessage) {
         Post post = Post.findById(idMessage)
-        if (post.getMembre().getId() == user.getId()) {
+        if (post?.getMembre().getId() == user.getId()) {
             return post.delete();
         } else {
             return false;

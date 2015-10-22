@@ -106,7 +106,7 @@
                             </g:link>
                         </li>
                         <li <g:if test="${pageId == 'wall-news'}"> class="active"</g:if>>
-                            <g:link controller="wall" action="news">
+                            <g:link controller="post" action="news">
                                 <i class="fa fa-newspaper-o"></i>
                                 Actus
                             </g:link>
