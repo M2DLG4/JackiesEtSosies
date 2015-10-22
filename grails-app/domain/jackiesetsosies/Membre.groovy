@@ -12,6 +12,7 @@ class Membre {
     boolean isSosie;
     Star idStar;
     String urlPhoto;
+    static hasMany = [posts:Post]
 
     static constraints = {
         nom blank: false

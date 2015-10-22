@@ -12,10 +12,6 @@
 <body>
     <div class="jumbotron">
         <h3>Modification de votre Profil</h3>
-
-        <br style="font-size:0.98em;">
-            Ici vous pouvez modifier votre profil !
-
     </div>
 
     <div class="row">

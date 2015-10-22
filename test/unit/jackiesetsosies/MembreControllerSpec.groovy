@@ -8,6 +8,7 @@ class MembreControllerSpec extends Specification {
     void setup() {
         controller.membreService = Mock(MembreService)
         controller.starService = Mock(StarService)
+        controller.postService = Mock(PostService)
     }
 
     void "test une inscription valide"() {
@@ -123,7 +124,7 @@ class MembreControllerSpec extends Specification {
         controller.actus()
 
         then: "la vue est actus"
-        view.equals("/membre/actus")
+        response.redirectedUrl == '/post/news'
     }
 
     void "test afficher la page de gestion de profil"() {
@@ -133,6 +134,7 @@ class MembreControllerSpec extends Specification {
         session.setAttribute("user", Mock(Membre));
         controller.membreService.getMembre(_) >> m
         controller.membreService.isFollowingMembre(_,_) >> false
+        controller.postService.getPosts() >> Mock(Post)
 
         when: "on se connecte à la gestion de profil"
         controller.profil()
@@ -148,6 +150,7 @@ class MembreControllerSpec extends Specification {
         session.setAttribute("user", Mock(Membre));
         controller.membreService.getMembre(_) >> m
         controller.membreService.isFollowingMembre(_,_) >> true
+        controller.postService.getPosts() >> Mock(Post)
 
         when: "on se connecte à la gestion de profil"
         controller.profil()
@@ -231,6 +234,21 @@ class MembreControllerSpec extends Specification {
         flash.error.equals(controller.EDITION_NOK)
     }
 
+    void "test ajout d'ami"() {
+        given: "Un membre connecté"
+        Membre m = Mock(Membre)
+        m.getId() >> 1
+        session.setAttribute("user", m);
+        params.id = 2
+        controller.membreService.addSuivreMembre(_, _) >> Mock(SuivreMembre)
+
+        when: "il essaye de suivre un autre membre"
+        controller.add()
+
+        then: "un message de confirmation est affiché"
+        flash.message.equals(controller.SUIVRE_OK)
+    }
+
     void "test ajout d'ami sur meme profil"() {
         given: "Un membre connecté"
         Membre m = Mock(Membre)
@@ -245,19 +263,36 @@ class MembreControllerSpec extends Specification {
         flash.error.equals(controller.SUIVRE_NOK)
     }
 
-    void "test ajout d'ami"() {
+    void "test suppression d'ami"() {
+        given: "Un membre ami avec un autre membre"
+        SuivreMembre sm = Mock(SuivreMembre)
+        Membre m = Mock(Membre)
+        m.getId() >> 2
+        sm.membreSuivi.getId() >> 1
+        sm.membre.getId() >> 2
+        params.id = 1
+        session.setAttribute("user", m)
+        controller.membreService.isFollowingMembre(_, _) >> true
+
+        when: "il essaye de supprimer ce lien d'amitié"
+        controller.remove()
+
+        then: "un message de confirmation est affiché"
+        flash.message.equals(controller.REMOVE_OK)
+    }
+
+    void "test suppression d'ami impossible"() {
         given: "Un membre connecté"
         Membre m = Mock(Membre)
         m.getId() >> 1
         session.setAttribute("user", m);
-        params.id = 2
-        controller.membreService.addSuivreMembre(_, _) >> Mock(SuivreMembre)
+        params.id = 1
 
-        when: "il essaye de suivre un autre membre"
+        when: "il essaye de de suivre lui-même"
         controller.add()
 
-        then: "un message de confirmation est affiché"
-        flash.message.equals(controller.SUIVRE_OK)
+        then: "un message d'erreur est affiché"
+        flash.error.equals(controller.SUIVRE_NOK)
     }
 
     void "test suppression membre"() {
