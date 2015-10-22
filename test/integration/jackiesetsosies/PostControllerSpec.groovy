@@ -29,7 +29,7 @@ class PostControllerSpec extends Specification {
         Post post = new Post(message: "Un message", membre: membre, date: new Date(), nbLikes: 0).save();
         RequestContextHolder.currentRequestAttributes().session.setAttribute("user", membre);
         def idMessage = post.getId();
-        postController.request.parameters = [idMessage: idMessage + ""];
+        postController.request.parameters = [id: idMessage + ""];
 
         when: "on supprime le message"
         postController.supprimer()

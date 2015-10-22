@@ -48,7 +48,11 @@
                                         <p><img src="${post.getMembre().urlPhoto}" class="img-responsive img-circle"/></p>
                                     </g:else>
                                 </div>
-
+                                <g:if test="${post.getMembre().getId() == session.getAttribute("user").getId()}">
+                                    <g:link controller="post" action="supprimer" id="${post.getId()}">
+                                        <span class="glyphicon glyphicon-remove" style="color: black;float:right"></span>
+                                    </g:link>
+                                </g:if>
                                 <div class="user-detail">
                                     <h5 class="handle">
                                         <g:link controller="membre" action="profil" id="${post.getMembre().id}">
@@ -73,6 +77,7 @@
                     </div>
                 </g:each>
             </g:if>
+            </div>
 
             </div>
         </div>

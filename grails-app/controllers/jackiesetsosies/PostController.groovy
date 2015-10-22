@@ -10,8 +10,8 @@ class PostController {
     public static
     final String AJOUTPOST_OK = "Message posté !"
     final String AJOUTPOST_NOK = "Une erreur est survenue lors de l'ajout du message !"
-    final String SUPPRESSIONPOST_OK = "Message posté !"
-    final String SUPPRESSIONPOST_NOK = "Une erreur est survenue lors de l'ajout du message !"
+    final String SUPPRESSIONPOST_OK = "Message supprimé !"
+    final String SUPPRESSIONPOST_NOK = "Une erreur est survenue lors de la suppression du message !"
 
     def sharedPost() {
         def message = params.message
@@ -29,7 +29,8 @@ class PostController {
 
     def supprimer() {
         Membre user = session.getAttribute("user")
-        def res = postService.supprimer(user, params.getLong("idMessage"))
+        def res = postService.supprimer(user, params.getLong("id"))
+
         if (res) {
             flash.message = SUPPRESSIONPOST_OK
         } else {
