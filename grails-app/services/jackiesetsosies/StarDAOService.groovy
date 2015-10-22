@@ -13,8 +13,4 @@ class StarDAOService {
     Star searchStar(int id) {
         return Star.findById(id)
     }
-
-    Star searchStar(long id) {
-        return Star.findById(id)
-    }
 }

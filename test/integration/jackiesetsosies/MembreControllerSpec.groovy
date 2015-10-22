@@ -13,7 +13,7 @@ class MembreControllerSpec extends Specification {
         given:"une liste de parametre"
         def membreController = new MembreController();
         membreController.request.parameters = [nom: "UnNom", prenom: "UnPrenom", ville: "UneVille",
-                                               sexe: "F", isSosie: "false", mail: "uneadresse@email.fr", mdp: "1234"];
+                                               sexe: "F", isSosie: "true", mail: "uneadresse@email.fr", star: "1", mdp: "1234"];
 
         when: "on inscrit le membre"
         membreController.inscription()

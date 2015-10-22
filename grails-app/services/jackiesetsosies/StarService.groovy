@@ -9,11 +9,6 @@ class StarService {
         return s
     }
 
-    Star getStar(long id) {
-        Star s = starDAOService.searchStar(id)
-        return s
-    }
-
     List<Star> getStars() {
         return starDAOService.getStars();
     }

@@ -61,7 +61,7 @@ class MembreService {
                 return false;
             }
             else {
-                membre.setIdStar(starDAOService.searchStar(Long.parseLong(id)));
+                membre.setIdStar(starDAOService.searchStar(Integer.parseInt(id)));
             }
         }
         else {
