@@ -19,10 +19,8 @@ class StarServiceSpec extends Specification {
 
         when: "on effectue la recherche de"
         Star res = service.getStar(1);
-        Star res2 = service.getStar((Long) 1);
 
         then: "ces star n'existent pas"
         res == null
-        res2 == null
     }
 }
