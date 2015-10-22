@@ -244,10 +244,10 @@ class MembreControllerSpec extends Specification {
         params.id = 1
 
         when: "il essaye de de suivre lui-même"
-        controller.add()
+        controller.remove()
 
         then: "un message d'erreur est affiché"
-        flash.error.equals(controller.SUIVRE_NOK)
+        flash.error.equals(controller.REMOVE_NOK)
     }
 
     void "test suppression membre"() {
