@@ -54,5 +54,51 @@
             </g:link>
         </g:else>
     </g:else>
+
+    <div class="col-md-9" id="timeline">
+        <div class="qa-message-list" id="wallmessages">
+            <g:if test="${posts}">
+                <g:each var="post" in="${posts }">
+                    <div class="message-item" id="m16">
+                        <div class="message-inner">
+                            <div class="message-head clearfix">
+                                <div class="avatar pull-left">
+
+                                    <g:if test="${membre.urlPhoto.equals(null)}">
+                                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
+                                    </g:if>
+                                    <g:else>
+                                        <p><img src="${membre.urlPhoto}" class="img-responsive img-circle"/></p>
+                                    </g:else>
+
+                                </div>
+
+                                <div class="user-detail">
+                                    <h5 class="handle">
+                                        <g:link controller="membre" action="profil" id="${post.getIdMembre()}">
+                                            ${membre.prenom} ${membre.nom}
+                                        </g:link>
+                                    </h5>
+                                    <div class="post-meta">
+                                        <div class="asker-meta">
+                                            <span class="qa-message-what"></span>
+                                            <span class="qa-message-when">
+                                                <span class="qa-message-when-data">le ${post.getDate().format( 'dd MMM yyyy à hh:mm' )}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="qa-message-content">
+                                ${post.getMessage()}
+                            </div>
+                        </div>
+                    </div>
+                </g:each>
+            </g:if>
+
+        </div>
+    </div>
 </body>
 </html>
