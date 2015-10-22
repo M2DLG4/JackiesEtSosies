@@ -13,12 +13,15 @@ class PostService {
         return postDAOService.addPost(newPost);
     }
 
-
     List<Post> getPosts(Membre membre) {
         return postDAOService.searchPosts(membre);
     }
 
     Boolean supprimer(Membre user, Long idMessage) {
         return postDAOService.supprimer(user, idMessage);
+    }
+
+    List<Post> getFollowedPosts(Membre membre) {
+        return postDAOService.searchFollowedPosts(membre);
     }
 }

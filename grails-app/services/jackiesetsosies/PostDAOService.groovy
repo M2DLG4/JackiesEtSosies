@@ -21,4 +21,10 @@ class PostDAOService {
             return false;
         }
     }
+
+    List<Post> searchFollowedPosts(Membre membre) {
+        List<Membre> followedMembres = SuivreMembre.findAllByMembre(membre).membreSuivi.toList()
+        followedMembres.add(membre)
+        return Post.findAllByMembreInList(followedMembres, ["sort": "date", "order": "desc"]);
+    }
 }
