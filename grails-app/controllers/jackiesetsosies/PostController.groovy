@@ -10,6 +10,7 @@ class PostController {
 
     def sharedPost() {
         def message = params.message
+
         Membre user = session.getAttribute("user")
         user = postService.addPostToMembre(user, message)
         if (user) {

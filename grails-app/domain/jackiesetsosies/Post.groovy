@@ -9,7 +9,7 @@ class Post {
     Date date;
     String message;
     int nbLikes;
-    Membre membre;
+    Membre membre
 
     static constraints = {
         date blank: false
@@ -26,7 +26,19 @@ class Post {
                 " date=" + date +
                 ", message='" + message + '\'' +
                 ", nbLikes=" + nbLikes +
-                ", membre=" + idMembre +
+                ", membre=" + membre.getNom() + " " + membre.getPrenom() +
                 '}';
     }
+
+    boolean equals(o) {
+        if (this.is(o)) return true
+        if (getClass() != o.class) return false
+
+        Post post = (Post) o
+
+        if (id != post.id) return false
+
+        return true
+    }
+
 }

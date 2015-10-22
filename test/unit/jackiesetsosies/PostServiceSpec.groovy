@@ -34,4 +34,16 @@ class PostServiceSpec extends Specification {
         then: "Le post est ajouté"
         res == m
     }
+
+    void "test récuperer les posts"() {
+        given: "on récupère la liste des posts"
+        Membre m = Mock(Membre);
+        service.postDAOService.searchPosts(m) >> null
+
+        when: "on enregistre le post"
+        List<Post> res = service.getPosts(m)
+
+        then: "Le post est ajouté"
+        res == null
+    }
 }

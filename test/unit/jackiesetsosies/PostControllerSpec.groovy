@@ -11,52 +11,38 @@ import spock.lang.Specification
 class PostControllerSpec extends Specification {
 
     void setup() {
-        controller.membreService = Mock(MembreService)
-    }
-
-    void "test redirection post"() {
-        when: "on execute news"
-        controller.post()
-
-        then: "la vue est news"
-        view.equals("/post/post")
+        //controller.membreService = Mock(MembreService)
+        controller.postService = Mock(PostService)
     }
 
     void "test sharedPost avec un post valide"() {
         given: "un message"
-        params.message >> "le message"
+        params.message = "le message"
+
 
         and: "un membre connecté"
-        Membre membre = Mock(Membre)
-        session.getAttribute("user") >> membre
-        Post post = Mock(Post)
-        post.hasErrors() >> false
-        post.validate() >> true
-        membre.getPosts() >> post
+        controller.postService.addPostToMembre(_, _) >> Mock(Membre)
 
         when: "on execute sharedPost"
         controller.sharedPost()
 
         then: "on est redirigé vers la vue"
+        flash.message == "OK"
         response.redirectedUrl == "/wall/news"
     }
 
     void "test sharedPost avec un post pas valide"() {
         given: "un message vide"
-        params.message >> ""
+        params.message = ""
 
         and: "un membre connecté"
-        Membre membre = Mock(Membre)
-        session.getAttribute("user") >> membre
-        Post post = Mock(Post)
-        post.hasErrors() >> false
-        post.validate() >> true
-        membre.getPosts() >> []
+        controller.postService.addPostToMembre(_, _) >> null
 
         when: "on execute sharedPost"
         controller.sharedPost()
 
         then: "on est redirigé vers la vue"
+        flash.message == "NOK"
         response.redirectedUrl == "/wall/news"
     }
 }
