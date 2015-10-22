@@ -18,6 +18,7 @@ class MembreController {
     final String SUPRESSION_OK = "Votre compte a été supprimé avec succès."
 
     def membreService
+    def postService
 
     @Override
     def index() {
@@ -67,16 +68,16 @@ class MembreController {
     }
 
     def actus() {
-        render(view: "actus")
+        redirect action: "news", controller: "wall"
     }
 
     def profil() {
-        Membre membre = membreService.getMembre(Integer.parseInt(params.get("id")))
         Boolean isFollowing = false
-
+        Membre membre = membreService.getMembre(params.getLong("id"))
         if (membre != null) {
+            def posts = postService.getPosts(membre);
             isFollowing = membreService.isFollowingMembre(session.getAttribute("user").getId(), membre.id)
-            render(view: "profil", model: [membre: membre, suivi: isFollowing])
+            render(view: "profil", model: [membre: membre, suivi: isFollowing, posts: posts])
         } else {
             render(layout: "main", text: PROFIL_NOK)
         }

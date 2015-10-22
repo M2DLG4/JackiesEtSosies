@@ -12,6 +12,7 @@ class Membre {
     boolean isSosie;
     Star idStar;
     String urlPhoto;
+    static hasMany = [posts:Post]
 
     static constraints = {
         nom blank: false
@@ -26,6 +27,9 @@ class Membre {
 
     static mapping = {
         isSosie defaultValue: false
+        idStar lazy: false
+        id column: 'member_id'
+        posts fetch: 'join', cascade: 'all'
         idStar lazy: false
     }
 

@@ -105,7 +105,7 @@
                             </g:link>
                         </li>
                         <li>
-                            <g:link controller="membre" action="actus">
+                            <g:link controller="wall" action="news">
                                 <i class="fa fa-newspaper-o"></i>
                                 Actus
                             </g:link>

@@ -61,6 +61,7 @@ class MembreService {
         Membre m = membreDAOService.searchMembre(id)
         return m
     }
+
     Membre getMembre(long id) {
         Membre m = membreDAOService.searchMembre(id)
         return m
