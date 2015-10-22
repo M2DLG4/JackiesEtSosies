@@ -38,4 +38,18 @@ class PostControllerSpec extends Specification {
         assert Post.findById(idMessage) == null
     }
 
+
+    void "test affichage mur"() {
+        given:"pour un utilisateur connecté"
+        def postController = new PostController();
+        Membre membre = Membre.findByMail("pat.perdu@wanadoo.net");
+        RequestContextHolder.currentRequestAttributes().session.setAttribute("user", membre);
+
+        when: "on affiche le mur de news"
+        postController.news()
+
+        then: "la bonne vue est retournée"
+        postController.modelAndView.viewName == "/post/news"
+    }
+
 }
