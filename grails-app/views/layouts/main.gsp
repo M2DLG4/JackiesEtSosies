@@ -105,7 +105,7 @@
                                 Profil
                             </g:link>
                         </li>
-                        <li <g:if test="${pageId == 'wall-news'}"> class="active"</g:if>>
+                        <li <g:if test="${pageId == 'post-news'}"> class="active"</g:if>>
                             <g:link controller="post" action="news">
                                 <i class="fa fa-newspaper-o"></i>
                                 Fil d'actualités
