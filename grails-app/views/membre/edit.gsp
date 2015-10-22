@@ -73,6 +73,32 @@
                                    name="mdp" type="password">
                             <br/>
                             <g:actionSubmit class="btn btn-lg btn-success btn-block" action="edition" type="submit" id="edit" value="Valider" />
+                            <a  class="btn btn-lg btn-danger btn-block" href="#" data-toggle="modal" data-target="#myModal">
+                                    <i class="fa fa-ban"></i>
+                                    Supprimer votre compte</a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Suppression de votre compte</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Attention, si vous validez, votre compte sera supprimé définitivement.</br>
+                                            Si vous ne souhaitez pas supprimer votre compte, cliquer sur Annuler
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            <g:link controller="membre" action="suppression">
+                                                <button type="button" class="btn btn-primary">Valider</button>
+                                            </g:link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </fieldset>
                     </g:form>
                 </div>

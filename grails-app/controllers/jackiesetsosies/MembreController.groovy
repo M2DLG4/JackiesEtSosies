@@ -139,7 +139,8 @@ class MembreController {
         membreService.supprimerMembre(membreService.getMembre(session.getAttribute("user").id))
         session.removeAttribute("user")
         session.removeAttribute("mail")
-        redirect action: "index"
+        def listStar = starService.getStars();
+        render(view: "index", model: [listStar:listStar])
         flash.message = SUPRESSION_OK
     }
 }

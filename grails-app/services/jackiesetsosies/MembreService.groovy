@@ -54,21 +54,17 @@ class MembreService {
                     break;
             }
         }
-        System.out.println("TEST -------------------------->  "+params.get("isSosie"));
         if(params.get("isSosie")) {
             String id = params.get("star");
             if (id.equals("")) {
-                System.out.println("ICI--------------------------");
                 membre.setIsSosie(false);
                 return false;
             }
             else {
-                System.out.println("LABAS--------------------------");
                 membre.setIdStar(starDAOService.searchStar(Long.parseLong(id)));
             }
         }
         else {
-            System.out.println("LA--------------------------");
             membre.setIdStar(null);
         }
         membre = membreDAOService.saveMembre(membre);
