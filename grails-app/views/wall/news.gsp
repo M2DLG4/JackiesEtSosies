@@ -16,23 +16,23 @@
         <g:form accept-charset="UTF-8" url="[action:'sharedPost',controller:'post']">
             <div class="col-md-10 col-md-offset-1 well">
                 <textarea class="form-control" name="message"
-                          placeholder="Type in your message"
+                          placeholder="Tapez votre message"
                           rows="5" required></textarea>
 
                 <div style="margin-top:10px">
                     <h6 class="pull-right "><span
-                            class="nb_carac_remaining">320</span> characters remaining
+                            class="nb_carac_remaining">320</span> caractères restants
                     </h6>
 
-                    <button class="btn btn-info"
-                            type="submit">Post New Message</button>
+                    <button id="post-message" class="btn btn-info"
+                            type="submit">Poster</button>
                 </div>
                 <br /> ${error}
             </div>
         </g:form>
     </div>
     <div class="col-md-9" id="timeline">
-        <h3 class="text-center">Découvrez ce que vos amis et sosies préférés partagent !</h3>
+        <h3>Votre fil d'actualités :</h3>
         <br>
         <div class="qa-message-list" id="wallmessages">
             <g:if test="${posts}">
@@ -52,7 +52,7 @@
                                 <div class="user-detail">
                                     <h5 class="handle">
                                         <g:link controller="membre" action="profil" id="${post.getMembre().id}">
-                                            ${post.getMembre().nom} ${post.getMembre().prenom}
+                                            ${post.getMembre().prenom} ${post.getMembre().nom}
                                         </g:link>
                                     </h5>
                                     <div class="post-meta">

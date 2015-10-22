@@ -42,7 +42,7 @@
                     <g:form class="form-edit" name="edition-form" url="[action:'index',controller:'recherche']">
                         <div class="input-group stylish-input-group">
                             <input type="text" class="form-control" name="text"
-                                   placeholder="Search">
+                                   placeholder="Rechercher un membre">
                             <span class="input-group-addon">
                                 <button type="submit">
                                     <span class="fa fa-search"></span>
@@ -108,7 +108,7 @@
                         <li <g:if test="${pageId == 'wall-news'}"> class="active"</g:if>>
                             <g:link controller="wall" action="news">
                                 <i class="fa fa-newspaper-o"></i>
-                                Actus
+                                Fil d'actualités
                             </g:link>
                         </li>
                         <li>
@@ -171,6 +171,7 @@
 
 <script src="${resource(dir: 'js', file: 'jquery-1.11.3.min.js')}"></script>
 <script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
-<script src="${resource(dir: 'js', file: 'search.js')}"></script>
+<script src="${resource(dir: 'js', file: 'wall.js')}"></script>
+
 </body>
 </html>
