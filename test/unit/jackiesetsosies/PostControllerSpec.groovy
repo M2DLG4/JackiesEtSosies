@@ -62,19 +62,6 @@ class PostControllerSpec extends Specification {
         flash.message == controller.SUPPRESSIONPOST_OK
     }
 
-    void "test redirection news"() {
-        given: "un utilisateur connecté"
-        controller.postService.getPosts() >> null
-        Membre membre = Mock(Membre)
-        session.getAttribute("user") >> membre
-
-        when: "on execute news"
-        controller.news()
-
-        then: "la vue est news"
-        view.equals("/post/news")
-    }
-
     void "test supprimer un post pas existant"() {
         given: "l'id du post"
         params.idMessage = 233

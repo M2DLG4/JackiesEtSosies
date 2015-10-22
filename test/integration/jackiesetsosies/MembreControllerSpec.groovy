@@ -103,5 +103,19 @@ class MembreControllerSpec extends Specification {
         membreController.flash.message == membreController.REMOVE_OK
     }
 
+    void "test affichage profil"() {
+        given:"une liste de parametre"
+        def membreController = new MembreController();
+        Membre m1 = Membre.findByMail("pat.perdu@wanadoo.net");
+        RequestContextHolder.currentRequestAttributes().session.setAttribute("user", m1);
+        membreController.request.parameters = [id: m1.id + ""];
+
+        when: "on affiche le profil"
+        membreController.profil()
+
+        then:
+        membreController.modelAndView.viewName == "/membre/profil"
+    }
+
 
 }
