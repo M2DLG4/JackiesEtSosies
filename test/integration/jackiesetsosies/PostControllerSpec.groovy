@@ -38,6 +38,20 @@ class PostControllerSpec extends Specification {
         assert Post.findById(idMessage) == null
     }
 
+    void "test suppression d'un post qui n'existe pas"() {
+        given:"une liste de parametre"
+        def postController = new PostController();
+        Membre membre = Membre.findByMail("pat.perdu@wanadoo.net");
+        RequestContextHolder.currentRequestAttributes().session.setAttribute("user", membre);
+        postController.request.parameters = [id: 16666 + ""];
+
+        when: "on supprime le message qui n'existe pas"
+        postController.supprimer()
+
+        then: "le post n'a pas été supprimée"
+        postController.flash.error == postController.SUPPRESSIONPOST_NOK
+    }
+
 
     void "test affichage mur"() {
         given:"pour un utilisateur connecté"
