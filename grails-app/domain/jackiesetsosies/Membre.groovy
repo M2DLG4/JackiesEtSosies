@@ -28,8 +28,6 @@ class Membre {
     static mapping = {
         isSosie defaultValue: false
         idStar lazy: false
-        id column: 'member_id'
-        posts fetch: 'join', cascade: 'all'
     }
 
     @Override

@@ -21,13 +21,13 @@ class PostControllerSpec extends Specification {
 
 
         and: "un membre connecté"
-        controller.postService.addPostToMembre(_, _) >> Mock(Membre)
+        controller.postService.addPostToMembre(_, _) >> Mock(Post)
 
         when: "on execute sharedPost"
         controller.sharedPost()
 
         then: "on est redirigé vers la vue"
-        flash.message == "OK"
+        flash.message == controller.AJOUTPOST_OK
         response.redirectedUrl == "/wall/news"
     }
 
@@ -42,7 +42,23 @@ class PostControllerSpec extends Specification {
         controller.sharedPost()
 
         then: "on est redirigé vers la vue"
-        flash.message == "NOK"
+        flash.error == controller.AJOUTPOST_NOK
         response.redirectedUrl == "/wall/news"
+    }
+
+    void "test supprimer un post"() {
+        given: "un message vide"
+        params.idMessage >> 2
+
+        and: "un membre connecté"
+        Membre membre = Mock(Membre)
+        session.getAttribute("user") >> membre
+        controller.postService.supprimer(_, _) >> true
+
+        when: "on execute sharedPost"
+        controller.supprimer()
+
+        then: "on est redirigé vers la vue"
+        flash.message == controller.SUPPRESSIONPOST_OK
     }
 }

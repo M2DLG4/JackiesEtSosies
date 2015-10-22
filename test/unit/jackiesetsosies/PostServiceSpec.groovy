@@ -22,17 +22,18 @@ class PostServiceSpec extends Specification {
     void "test ajouter un post"() {
         given: "Un utilisateur désirant ajouter un post"
         Membre m = Mock(Membre);
+        Post p = Mock(Post);
         m.hasErrors() >> false
         service.membreDAOService.searchMembre(_) >> m
-        service.postDAOService.addPost(_, _) >> m
+        service.postDAOService.addPost(_) >> p
         m.getId() >> 1
         def text = "Lorem lipsum"
 
         when: "on enregistre le post"
-        Membre res = service.addPostToMembre(m, text);
+        Post res = service.addPostToMembre(m, text);
 
         then: "Le post est ajouté"
-        res == m
+        res == p
     }
 
     void "test récuperer les posts"() {
@@ -46,4 +47,18 @@ class PostServiceSpec extends Specification {
         then: "Le post est ajouté"
         res == null
     }
+
+    void "test supprimer un post"() {
+        given: "Un utilisateur désirant supprimer un post"
+        Membre m = Mock(Membre);
+        service.postDAOService.supprimer(_, _) >> true
+
+        when: "on enregistre le post"
+        Boolean res = service.supprimer(m, 1);
+
+        then: "Le post est ajouté"
+        res == true
+    }
+
+
 }
