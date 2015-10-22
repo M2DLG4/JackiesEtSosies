@@ -75,7 +75,7 @@
 
                                 <div class="user-detail">
                                     <h5 class="handle">
-                                        <g:link controller="membre" action="profil" id="${post.getIdMembre()}">
+                                        <g:link controller="membre" action="profil" id="${post.getMembre().id}">
                                             ${membre.prenom} ${membre.nom}
                                         </g:link>
                                     </h5>

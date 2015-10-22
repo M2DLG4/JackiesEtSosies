@@ -9,7 +9,7 @@ class Post {
     Date date;
     String message;
     int nbLikes;
-    long idMembre
+    Membre membre;
 
     static constraints = {
         date blank: false

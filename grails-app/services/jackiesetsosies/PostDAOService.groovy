@@ -11,7 +11,7 @@ class PostDAOService {
         return membre.save(flush: true)
     }
 
-    List<Post> searchPosts(Long idMembre) {
-        return Post.findAllByIdMembre(idMembre, ["sort": "date", "order": "desc"]);
+    List<Post> searchPosts(Membre membre) {
+        return Post.findAllByMembre(membre, ["sort": "date", "order": "desc"]);
     }
 }

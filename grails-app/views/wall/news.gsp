@@ -40,24 +40,26 @@
                     <div class="message-item" id="m16">
                         <div class="message-inner">
                             <div class="message-head clearfix">
-                                <div class="avatar pull-left"><a
-                                        href="./index.php?qa=user&qa_1=Oleg+Kolesnichenko"><img
-                                            src="/JackiesEtSosies/images/placeholder-membre.png"
-                                            class="img-circle"></a></div>
+                                <div class="avatar pull-left">
+                                    <g:if test="${post.getMembre().urlPhoto.equals(null)}">
+                                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
+                                    </g:if>
+                                    <g:else>
+                                        <p><img src="${post.getMembre().urlPhoto}" class="img-responsive img-circle"/></p>
+                                    </g:else>
+                                </div>
 
                                 <div class="user-detail">
-                                    <h5 class="handle">Id Créateur ${post.getIdMembre()}</h5>
+                                    <h5 class="handle">
+                                        <g:link controller="membre" action="profil" id="${post.getMembre().id}">
+                                            ${post.getMembre().nom} ${post.getMembre().prenom}
+                                        </g:link>
+                                    </h5>
                                     <div class="post-meta">
                                         <div class="asker-meta">
                                             <span class="qa-message-what"></span>
                                             <span class="qa-message-when">
-                                                <span class="qa-message-when-data">${post.getDate().format( 'dd MMM yyyy hh:mm' )}</span>
-                                            </span>
-                                            <span class="qa-message-who">
-                                                <span class="qa-message-who-pad">by</span>
-                                                <span class="qa-message-who-data"><a
-                                                        href="./membre/profil/${post.getIdMembre()}">Créateur du post</a>
-                                                </span>
+                                                <span class="qa-message-when-data">le ${post.getDate().format( 'dd MMM yyyy hh:mm' )}</span>
                                             </span>
                                         </div>
                                     </div>
