@@ -64,7 +64,7 @@ class PostControllerSpec extends Specification {
 
     void "test redirection news"() {
         given: "un utilisateur connecté"
-        controller.postService.getPosts() >> null
+        controller.postService.getFollowedPosts() >> null
         Membre membre = Mock(Membre)
         session.getAttribute("user") >> membre
 
