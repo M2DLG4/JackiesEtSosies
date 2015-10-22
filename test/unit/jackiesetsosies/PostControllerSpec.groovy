@@ -46,16 +46,16 @@ class PostControllerSpec extends Specification {
         response.redirectedUrl == "/post/news"
     }
 
-    void "test supprimer un post"() {
-        given: "un message vide"
-        params.idMessage >> 2
+    void "test supprimer un post existant"() {
+        given: "l'id du post"
+        params.idMessage = 2
 
         and: "un membre connecté"
         Membre membre = Mock(Membre)
         session.getAttribute("user") >> membre
         controller.postService.supprimer(_, _) >> true
 
-        when: "on execute sharedPost"
+        when: "on supprime le post"
         controller.supprimer()
 
         then: "on est redirigé vers la vue"
@@ -73,5 +73,21 @@ class PostControllerSpec extends Specification {
 
         then: "la vue est news"
         view.equals("/post/news")
+    }
+
+    void "test supprimer un post pas existant"() {
+        given: "l'id du post"
+        params.idMessage = 233
+
+        and: "un membre connecté"
+        Membre membre = Mock(Membre)
+        session.getAttribute("user") >> membre
+        controller.postService.supprimer(_, _) >> false
+
+        when: "on supprime le post"
+        controller.supprimer()
+
+        then: "on est redirigé vers la vue"
+        flash.error == controller.SUPPRESSIONPOST_NOK
     }
 }

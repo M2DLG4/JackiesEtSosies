@@ -103,6 +103,7 @@ class MembreController {
         redirect(action: "profil", id: session.getAttribute("user").getId())
     }
 
+    // Suivre un membre
     def add() {
         SuivreMembre sm = null
 
@@ -119,6 +120,7 @@ class MembreController {
         redirect(action: "profil", id: params.get("id"))
     }
 
+    // Arreter de suivre un membre
     def remove() {
         Long idMembre = params.getLong("id")
         Long idSession = session.getAttribute("user").getId()
@@ -132,6 +134,7 @@ class MembreController {
         redirect(action: "profil", id: idMembre)
     }
 
+    // Supprimer un membre
     def suppression() {
         membreService.supprimerMembre(membreService.getMembre(session.getAttribute("user").id))
         session.removeAttribute("user")
