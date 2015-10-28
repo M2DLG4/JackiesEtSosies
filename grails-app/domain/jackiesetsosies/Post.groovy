@@ -6,13 +6,13 @@ package jackiesetsosies
  * Model  Post
  */
 class Post {
-    Date date;
+    Date datePost;
     String message;
     int nbLikes;
     static belongsTo = [membre : Membre];
 
     static constraints = {
-        date blank: false
+        datePost blank: false
         message blank: false
     }
 
@@ -23,7 +23,7 @@ class Post {
     @Override
     public String toString() {
         return "Post{" +
-                " date=" + date +
+                " datePost=" + datePost +
                 ", message='" + message + '\'' +
                 ", nbLikes=" + nbLikes +
                 ", membre=" + membre.getNom() + " " + membre.getPrenom() +

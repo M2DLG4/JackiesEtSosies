@@ -23,11 +23,11 @@ class BootStrap {
         Membre membre6 = new Membre(prenom: "Dark", nom:"Vador", mail: "dark@vador.fr", mdp: "1234", ville:"Planette Noire", sexe:"H", urlPhoto:"http://a403.idata.over-blog.com/300x295/0/01/23/60/2012/dark-vador-essuie-ton-pere-star-wars-rouleau-essuie-ton-per.jpg", isSosie: true, idStar: star2.id).save()
         Membre membre7 = new Membre(prenom: "Philippe", nom:"Cobra", mail: "philippe@vazy.fr", mdp: "1234", ville:"Hong-Kong", sexe:"H", urlPhoto:"http://www.masculin.com/images/article/9289/sosie-de-merde-sarko-2.jpg", isSosie: true, idStar: star8.id).save()
 
-        Post post1 = new Post(date: new Date(), message: "Qui a le droit ?", nbLikes: 0, membre: membre1).save()
-        Post post2 = new Post(date: new Date(), message: "Moi aussi un jour je serais vigneron comme le Grand Gérard ! J'espère avoir mon passeport russe aussi.", nbLikes: 0, membre: membre2).save()
-        Post post3 = new Post(date: new Date(), message: "Merci pour vos messages à propos de mon concert d'hier ! Que Dieu vous bénisse tous.", nbLikes: 0, membre: membre1).save()
-        Post post4 = new Post(date: new Date(), message: "Les sosies sont les vrais artistes d'aujourd'hui. Merci Jackie&Sosies.", nbLikes: 0, membre: membre3).save()
-        Post post5 = new Post(date: new Date(), message: "Comme le dis François, que la foi soit avec toi.", nbLikes: 0, membre: membre6).save()
+        Post post1 = new Post(datePost: new Date(), message: "Qui a le droit ?", nbLikes: 0, membre: membre1).save()
+        Post post2 = new Post(datePost: new Date(), message: "Moi aussi un jour je serais vigneron comme le Grand Gérard ! J'espère avoir mon passeport russe aussi.", nbLikes: 0, membre: membre2).save()
+        Post post3 = new Post(datePost: new Date(), message: "Merci pour vos messages à propos de mon concert d'hier ! Que Dieu vous bénisse tous.", nbLikes: 0, membre: membre1).save()
+        Post post4 = new Post(datePost: new Date(), message: "Les sosies sont les vrais artistes d'aujourd'hui. Merci Jackie&Sosies.", nbLikes: 0, membre: membre3).save()
+        Post post5 = new Post(datePost: new Date(), message: "Comme le dis François, que la foi soit avec toi.", nbLikes: 0, membre: membre6).save()
 
         SuivreMembre sm1 = new SuivreMembre(membre: membre3, membreSuivi: membre1).save()
         SuivreMembre sm2 = new SuivreMembre(membre: membre3, membreSuivi: membre2).save()

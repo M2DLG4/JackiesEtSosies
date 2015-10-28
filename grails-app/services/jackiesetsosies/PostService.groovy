@@ -8,7 +8,7 @@ class PostService {
     Post addPostToMembre(Membre membreSession, String message) {
         def datePost = new Date()
         Membre membre = membreDAOService.searchMembre(membreSession.getId())
-        def newPost = new Post(date: datePost, message: message, membre: membre)
+        def newPost = new Post(datePost: datePost, message: message, membre: membre)
 
         return postDAOService.addPost(newPost);
     }

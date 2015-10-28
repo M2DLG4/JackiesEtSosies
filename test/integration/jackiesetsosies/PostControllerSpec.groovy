@@ -26,7 +26,7 @@ class PostControllerSpec extends Specification {
         given:"une liste de parametre"
         def postController = new PostController();
         Membre membre = Membre.findByMail("pat.perdu@wanadoo.net");
-        Post post = new Post(message: "Un message", membre: membre, date: new Date(), nbLikes: 0).save();
+        Post post = new Post(message: "Un message", membre: membre, datePost: new Date(), nbLikes: 0).save();
         RequestContextHolder.currentRequestAttributes().session.setAttribute("user", membre);
         def idMessage = post.getId();
         postController.request.parameters = [id: idMessage + ""];

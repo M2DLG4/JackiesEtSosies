@@ -25,7 +25,6 @@ class MembreService {
 
         for (String key : params.keySet()) {
             def val = params.get(key)
-            boolean sosieChanged;
             switch (key) {
                 case "nom":
                     membre.setNom(val);

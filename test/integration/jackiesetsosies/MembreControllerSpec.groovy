@@ -55,7 +55,7 @@ class MembreControllerSpec extends Specification {
         rechercheController.index()
 
         then:
-        1==1
+        rechercheController.modelAndView.viewName == "/membre/result"
     }
 
     void "test suppression d'un membre"() {

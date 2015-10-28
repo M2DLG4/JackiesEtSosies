@@ -13,7 +13,7 @@ class PostSpec extends Specification {
 
     void "test un post est valide"() {
         given: "Un post avec un message, une date et un membre en paramètre"
-        Post post = new Post(message: "le message", date: new Date(), membre: Mock(Membre))
+        Post post = new Post(message: "le message", datePost: new Date(), membre: Mock(Membre))
 
         when: "on valide le post"
         def isValid = post.validate()
@@ -24,7 +24,7 @@ class PostSpec extends Specification {
 
     void "test un post n'est pas valide"() {
         given: "Un post avec un message, une date et un membre en paramètre"
-        Post post = new Post(message: message, date: date, membre: membre)
+        Post post = new Post(message: message, datePost: date, membre: membre)
 
         when: "on valide le post"
         def isValid = post.validate()
@@ -45,14 +45,14 @@ class PostSpec extends Specification {
         String message = "le message"
         Date date = new Date()
         Membre membre = Mock(Membre)
-        Post post = new Post(message: message, date: date, membre: membre)
+        Post post = new Post(message: message, datePost: date, membre: membre)
 
         when: "on valide le post"
         def toString = post.toString()
 
         then: "le post n'est pas valide"
         toString == "Post{" +
-                " date=" + date +
+                " datePost=" + date +
                 ", message='" + message + '\'' +
                 ", nbLikes=" + "0" +
                 ", membre=" + membre.getNom() + " " + membre.getPrenom() +
@@ -62,8 +62,8 @@ class PostSpec extends Specification {
     @Unroll
     void "test equals"() {
         given:"Deux posts"
-        def post1 = new Post(id:1, message: _, membre: _, date:_);
-        def post2 = new Post(id:2, message: _, membre: _, date:_);
+        def post1 = new Post(id:1, message: _, membre: _, datePost:_);
+        def post2 = new Post(id:2, message: _, membre: _, datePost:_);
 
         when:"on cherche à savoir si post1 et post2 sont les m�mes"
         def isEquals = post1.equals(post2)

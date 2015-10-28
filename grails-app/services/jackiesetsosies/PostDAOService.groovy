@@ -10,7 +10,7 @@ class PostDAOService {
     }
 
     List<Post> searchPosts(Membre membre) {
-        return Post.findAllByMembre(membre, ["sort": "date", "order": "desc"]);
+        return Post.findAllByMembre(membre, ["sort": "datePost", "order": "desc"]);
     }
 
     Boolean supprimer(Membre user, Long idMessage) {
@@ -26,6 +26,6 @@ class PostDAOService {
     List<Post> searchFollowedPosts(Membre membre) {
         List<Membre> followedMembres = SuivreMembre.findAllByMembre(membre).membreSuivi.toList()
         followedMembres.add(membre)
-        return Post.findAllByMembreInList(followedMembres, ["sort": "date", "order": "desc"]);
+        return Post.findAllByMembreInList(followedMembres, ["sort": "datePost", "order": "desc"]);
     }
 }

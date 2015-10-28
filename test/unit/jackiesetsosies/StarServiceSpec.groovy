@@ -22,5 +22,6 @@ class StarServiceSpec extends Specification {
 
         then: "ces star n'existent pas"
         res == null
+        maList == null
     }
 }
