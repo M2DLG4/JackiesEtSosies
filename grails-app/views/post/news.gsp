@@ -42,7 +42,7 @@
                             <div class="message-head clearfix">
                                 <div class="avatar pull-left">
                                     <g:if test="${post.getMembre().urlPhoto.equals(null)}">
-                                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
+                                        <p><img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive img-circle"/></p>
                                     </g:if>
                                     <g:else>
                                         <p><img src="${post.getMembre().urlPhoto}" class="img-responsive img-circle"/></p>

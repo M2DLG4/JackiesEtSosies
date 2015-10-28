@@ -25,7 +25,7 @@
                 <img src="${membre.urlPhoto}" class="img-responsive img-circle" style="max-height: 100px;"/>
             </g:if>
             <g:else>
-                <img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/>
+                <img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive img-circle"/>
             </g:else>
         </div>
         <div class="col-md-8">

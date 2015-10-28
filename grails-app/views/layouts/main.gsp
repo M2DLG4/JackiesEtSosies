@@ -10,6 +10,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Jackies et Sosies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="${resource(dir: 'images', file: 'apple-icon-57x57.png')}">
+    <link rel="apple-touch-icon" sizes="60x60" href="${resource(dir: 'images', file: 'apple-icon-60x60.png')}">
+    <link rel="apple-touch-icon" sizes="72x72" href="${resource(dir: 'images', file: 'apple-icon-72x72.png')}">
+    <link rel="apple-touch-icon" sizes="76x76" href="${resource(dir: 'images', file: 'apple-icon-76x76.png')}">
+    <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-icon-114x114.png')}">
+    <link rel="apple-touch-icon" sizes="120x120" href="${resource(dir: 'images', file: 'apple-icon-120x120.png')}">
+    <link rel="apple-touch-icon" sizes="144x144" href="${resource(dir: 'images', file: 'apple-icon-144x144.png')}">
+    <link rel="apple-touch-icon" sizes="152x152" href="${resource(dir: 'images', file: 'apple-icon-152x152.png')}">
+    <link rel="apple-touch-icon" sizes="180x180" href="${resource(dir: 'images', file: 'apple-icon-180x180.png')}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="${resource(dir: 'images', file: 'android-icon-192x192.png')}">
+    <link rel="icon" type="image/png" sizes="32x32" href="${resource(dir: 'images', file: 'favicon-32x32.png')}">
+    <link rel="icon" type="image/png" sizes="96x96" href="${resource(dir: 'images', file: 'favicon-96x96.png')}">
+    <link rel="icon" type="image/png" sizes="16x16" href="${resource(dir: 'images', file: 'favicon-16x16.png')}">
+    <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="stylesheet"
           href="${resource(dir: 'css', file: 'bootstrap-yeti.min.css')}"
           type="text/css">
@@ -76,7 +90,7 @@
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
                     <g:if test="${session.getAttribute("user").urlPhoto.equals(null)}">
-                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
+                        <p><img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive img-circle"/></p>
                     </g:if>
                     <g:else>
                         <p><img src="${session.getAttribute("user").urlPhoto}" class="img-responsive img-circle"/></p>
@@ -110,11 +124,6 @@
                                 <i class="fa fa-newspaper-o"></i>
                                 Fil d'actualités
                             </g:link>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-calendar-check-o"></i>
-                                Evenements</a>
                         </li>
                         <li>
 
