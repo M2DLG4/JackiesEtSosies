@@ -119,7 +119,7 @@
                 <img src="${session.getAttribute("user").urlPhoto}"/>
             </g:if>
             <g:else>
-                <img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" />
+                <img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive"/>
             </g:else>
 
         </div>
