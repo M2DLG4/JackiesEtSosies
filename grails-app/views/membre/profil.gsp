@@ -20,7 +20,7 @@
         <div class="col-md-3">
             <br/>
             <g:if test="${membre.urlPhoto.equals(null)}">
-                <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive"/></p>
+                <p><img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive"/></p>
             </g:if>
             <g:else>
                 <p><img src="${membre.urlPhoto}" class="img-responsive"/></p>
@@ -65,7 +65,7 @@
                                 <div class="avatar pull-left">
 
                                     <g:if test="${membre.urlPhoto.equals(null)}">
-                                        <p><img src="/JackiesEtSosies/images/placeholder-membre.png" class="img-responsive img-circle"/></p>
+                                        <p><img src="${resource(dir: 'images', file: 'placeholder-membre.png')}" class="img-responsive img-circle"/></p>
                                     </g:if>
                                     <g:else>
                                         <p><img src="${membre.urlPhoto}" class="img-responsive img-circle"/></p>

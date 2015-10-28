@@ -7,21 +7,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="apple-touch-icon" sizes="57x57" href="/JackiesEtSosies/static/images/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/JackiesEtSosies/static/images/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/JackiesEtSosies/static/images/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/JackiesEtSosies/static/images/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/JackiesEtSosies/static/images/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/JackiesEtSosies/static/images/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/JackiesEtSosies/static/images/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/JackiesEtSosies/static/images/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/JackiesEtSosies/static/images/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/JackiesEtSosies/static/images/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/JackiesEtSosies/static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/JackiesEtSosies/static/images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/JackiesEtSosies/static/images/favicon-16x16.png">
-    <link rel="shortcut icon" href="/JackiesEtSosies/static/images/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="/JackiesEtSosies/static/images/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="${resource(dir: 'images', file: 'apple-icon-57x57.png')}">
+    <link rel="apple-touch-icon" sizes="60x60" href="${resource(dir: 'images', file: 'apple-icon-60x60.png')}">
+    <link rel="apple-touch-icon" sizes="72x72" href="${resource(dir: 'images', file: 'apple-icon-72x72.png')}">
+    <link rel="apple-touch-icon" sizes="76x76" href="${resource(dir: 'images', file: 'apple-icon-76x76.png')}">
+    <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-icon-114x114.png')}">
+    <link rel="apple-touch-icon" sizes="120x120" href="${resource(dir: 'images', file: 'apple-icon-120x120.png')}">
+    <link rel="apple-touch-icon" sizes="144x144" href="${resource(dir: 'images', file: 'apple-icon-144x144.png')}">
+    <link rel="apple-touch-icon" sizes="152x152" href="${resource(dir: 'images', file: 'apple-icon-152x152.png')}">
+    <link rel="apple-touch-icon" sizes="180x180" href="${resource(dir: 'images', file: 'apple-icon-180x180.png')}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="${resource(dir: 'images', file: 'android-icon-192x192.png')}">
+    <link rel="icon" type="image/png" sizes="32x32" href="${resource(dir: 'images', file: 'favicon-32x32.png')}">
+    <link rel="icon" type="image/png" sizes="96x96" href="${resource(dir: 'images', file: 'favicon-96x96.png')}">
+    <link rel="icon" type="image/png" sizes="16x16" href="${resource(dir: 'images', file: 'favicon-16x16.png')}">
+    <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
+    <link rel="manifest" href="${resource(dir: 'images', file: 'manifest.json')}">
     <title>Jackies et Sosies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
