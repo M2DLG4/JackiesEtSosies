@@ -89,7 +89,7 @@
                         ${session.getAttribute("user").prenom} ${session.getAttribute("user").nom}
                     </div>
                     <div class="profile-usertitle-job">
-                        <g:if test="${session.getAttribute("user").isSosie == true}">
+                        <g:if test="${session.getAttribute("user").isSosie}">
                             <p>Sosie de ${session.getAttribute("user").idStar.prenom} ${session.getAttribute("user").idStar.nom}</p>
                         </g:if>
                     </div>

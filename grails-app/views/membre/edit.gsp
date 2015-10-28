@@ -36,15 +36,28 @@
                             <p id="champ_cache">
                                 Star dont vous êtes sosie :<br/>
                                 <select class="form-control" name="star">
-                                    <option value="">Veuillez sélectionner une star</option>
+                                    <g:if test="${session.getAttribute("user").isSosie}">
+                                        <option value=${session.getAttribute("user").idStar.id}>
+                                            ${session.getAttribute("user").idStar.nom}
+                                            ${session.getAttribute("user").idStar.prenom}
+                                        </option>
+                                    </g:if>
+                                    <g:else>
+                                        <option value="">Veuillez sélectionner une star</option>
+                                    </g:else>
                                     <g:each var="star" in="${listStar}">
-                                        <option value=${star.id}>${star.nom} ${star.prenom}</option>
+                                        <g:if test="${session.getAttribute("user").idStar?.id != star.id}">
+                                            <option value=${star.id}>${star.nom} ${star.prenom}</option>
+                                        </g:if>
                                     </g:each>
                                 </select>
                             </p>
 
                             <g:javascript>
-                                document.getElementById("champ_cache").style.display = "none";
+                                if (document.getElementById("isSosie").checked)
+                                    document.getElementById("champ_cache").style.display = "block";
+                                else
+                                    document.getElementById("champ_cache").style.display = "none";
 
                                 function afficher()
                                 {
