@@ -21,7 +21,7 @@
 
                 <div style="margin-top:10px">
                     <h6 class="pull-right "><span
-                            class="nb_carac_remaining">320</span> caractères restants
+                            class="nb_carac_remaining">240</span> caractères restants
                     </h6>
 
                     <button id="post-message" class="btn btn-info"
@@ -63,7 +63,7 @@
                                         <div class="asker-meta">
                                             <span class="qa-message-what"></span>
                                             <span class="qa-message-when">
-                                                <span class="qa-message-when-data">le ${post.getDate().format( 'dd MMM yyyy hh:mm' )}</span>
+                                                <span class="qa-message-when-data">le ${post.getDatePost().format( 'dd MMM yyyy hh:mm' )}</span>
                                             </span>
                                         </div>
                                     </div>

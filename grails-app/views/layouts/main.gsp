@@ -132,11 +132,6 @@
                                 Déconnexion
                             </g:link>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-credit-card"></i>
-                                Donation</a>
-                        </li>
 
                     </ul>
                 </div>

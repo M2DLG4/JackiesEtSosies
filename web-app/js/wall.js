@@ -5,7 +5,7 @@
 
 $(function() {
     console.log("Jquery looks ready !!")
-    var nbCaracMax = 320;
+    var nbCaracMax = 240;
     var container = $("#new_message");
     $(container.find("textarea")).on("keyup", function(e) {
         var nbCharLeft =  nbCaracMax - $(this).val().length;

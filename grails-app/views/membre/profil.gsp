@@ -83,7 +83,7 @@
                                         <div class="asker-meta">
                                             <span class="qa-message-what"></span>
                                             <span class="qa-message-when">
-                                                <span class="qa-message-when-data">le ${post.getDate().format( 'dd MMM yyyy à hh:mm' )}</span>
+                                                <span class="qa-message-when-data">le ${post.getDatePost().format( 'dd MMM yyyy à hh:mm' )}</span>
                                             </span>
                                         </div>
                                     </div>
